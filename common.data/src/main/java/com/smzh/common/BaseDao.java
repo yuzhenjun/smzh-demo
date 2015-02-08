@@ -16,8 +16,8 @@ import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 /**
- * 数据库操作通用DAO
- * @author jiachen.tong
+ * 数据库通用类
+ * @author zhenjun
  *
  * @param <T>
  */

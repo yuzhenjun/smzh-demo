@@ -3,8 +3,8 @@ package com.smzh.common;
 import java.util.List;
 import java.util.Map;
 /**
- * 通用DAO
- * @author jiachen.tong
+ * 接口
+ * @author zhenjun
  *
  * @param <T>
  */

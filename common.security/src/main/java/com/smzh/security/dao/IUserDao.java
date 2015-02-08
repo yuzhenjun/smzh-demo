@@ -4,8 +4,8 @@ import com.smzh.common.IBaseDao;
 import com.smzh.security.entity.DefaultUser;
 
 /**
- * 用户信息DAO
- * @author jiachen.tong
+ * 用户信息
+ * @author zhenjun
  *
  */
 public interface IUserDao extends IBaseDao<DefaultUser>{

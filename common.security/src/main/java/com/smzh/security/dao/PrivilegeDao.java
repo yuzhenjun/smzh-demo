@@ -7,6 +7,11 @@ import org.springframework.stereotype.Repository;
 import com.smzh.common.BaseDao;
 import com.smzh.security.entity.DefaultPrivilege;
 
+/**
+ * 权限
+ * @author zhenjun
+ *
+ */
 @Repository
 public class PrivilegeDao extends BaseDao<DefaultPrivilege> implements IPrivilegeDao {
 

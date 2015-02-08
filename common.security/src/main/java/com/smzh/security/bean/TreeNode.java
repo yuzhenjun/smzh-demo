@@ -2,6 +2,11 @@ package com.smzh.security.bean;
 
 import java.util.List;
 
+/**
+ * 
+ * @author zhenjun
+ *
+ */
 public class TreeNode {
 
 	public static final String STATE_SELECT="";

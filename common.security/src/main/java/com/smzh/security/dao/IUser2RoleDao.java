@@ -6,8 +6,8 @@ import com.smzh.common.IBaseDao;
 import com.smzh.security.entity.User2Role;
 
 /**
- * 用户与角色关系Dao
- * @author jiachen.tong
+ * 用户与角色关系
+ * @author zhenjun
  *
  */
 public interface IUser2RoleDao extends IBaseDao<User2Role> {

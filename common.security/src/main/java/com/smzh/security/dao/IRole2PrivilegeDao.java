@@ -7,7 +7,8 @@ import com.smzh.security.entity.Role2Privilege;
 
 /**
  * 权限与角色关系dao接口
- * @author jiachen.tong
+ * 
+ * @author zhenjun
  *
  */
 public interface IRole2PrivilegeDao extends IBaseDao<Role2Privilege>{

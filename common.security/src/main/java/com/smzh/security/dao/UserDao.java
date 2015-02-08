@@ -7,6 +7,11 @@ import org.springframework.stereotype.Repository;
 import com.smzh.common.BaseDao;
 import com.smzh.security.entity.DefaultUser;
 
+/**
+ * 用户
+ * @author zhenjun
+ *
+ */
 @Repository
 public class UserDao extends BaseDao<DefaultUser> implements IUserDao {
 

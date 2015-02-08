@@ -16,10 +16,11 @@ import com.smzh.security.entity.DefaultUser;
 import com.smzh.security.entity.Role2Privilege;
 
 /**
- * 角色与权限关系DAO
- * @author jiachen.tong
+ * 角色与权限关系
+ * @author zhenjun
  *
  */
+
 @Repository
 public class Role2PrivilegeDao extends BaseDao<Role2Privilege> implements IRole2PrivilegeDao {
 

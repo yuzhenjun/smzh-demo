@@ -6,9 +6,8 @@ import com.smzh.common.IBaseDao;
 import com.smzh.security.entity.DefaultPrivilege;
 
 /**
- * 权限DAO
- * 
- * @author jiachen.tong
+ * 权限
+ * @author zhenjun
  *
  */
 public interface IPrivilegeDao extends IBaseDao<DefaultPrivilege> {

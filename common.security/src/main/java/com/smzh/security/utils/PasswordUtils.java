@@ -10,7 +10,7 @@ import com.smzh.security.entity.DefaultUser;
 
 /**
  * 用户密码加密工具
- * @author jiachen.tong
+ * @author zhenjun
  *
  */
 public class PasswordUtils {

@@ -10,6 +10,11 @@ import com.smzh.common.WapperBaseDao;
 import com.smzh.security.entity.Role;
 import com.smzh.util.SearchResult;
 
+/**
+ * 角色
+ * @author zhenjun
+ *
+ */
 @Repository
 public class RoleDao extends WapperBaseDao<Role> implements IRoleDao{
 

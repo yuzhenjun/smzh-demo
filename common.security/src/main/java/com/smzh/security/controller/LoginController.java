@@ -16,8 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 /**
- * <p>登录处理</p>
- * Created by jiachen.tong on 2014/12/25.
+ * 登录通用
+ * @author zhenjun
+ *
  */
 @Controller
 @Scope("request")

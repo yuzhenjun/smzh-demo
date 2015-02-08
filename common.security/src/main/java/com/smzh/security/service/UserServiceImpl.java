@@ -9,7 +9,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.smzh.security.dao.IUserDao;
 import com.smzh.security.entity.DefaultUser;
-
+/**
+ * 
+ * @author zhenjun
+ *
+ */
 @Service("userService")
 public class UserServiceImpl implements IUserService {
 

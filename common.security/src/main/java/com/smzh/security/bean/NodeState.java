@@ -1,6 +1,10 @@
 package com.smzh.security.bean;
 
-
+/**
+ * 
+ * @author zhenjun
+ *
+ */
 public class NodeState {
 	/**
 	 * 节点处于关闭状态，这表示节点为非叶子节点

@@ -17,7 +17,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 /**
- * 报表查询
+ * 数据库通用操作
+ * @author zhenjun
  *
  */
 @Repository

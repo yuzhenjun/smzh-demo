@@ -18,6 +18,9 @@
  */
 package org.apache.shiro.web.servlet;
 
+/**
+ * 去除jsessionId
+ */
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;

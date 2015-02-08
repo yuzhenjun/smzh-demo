@@ -16,8 +16,8 @@ import com.smzh.security.entity.DefaultUser;
 import com.smzh.security.entity.User2Role;
 
 /**
- * 用户与角色关系DAO
- * @author jiachen.tong
+ * 用户与角色关系
+ * @author zhenjun
  *
  */
 @Repository
