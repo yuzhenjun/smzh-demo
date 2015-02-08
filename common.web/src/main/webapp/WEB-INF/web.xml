@@ -9,6 +9,8 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
             classpath:spring/application-config.xml
+            classpath:spring-config-shiro.xml
+            classpath:spring/spring-config-login.xml
         </param-value>
 	</context-param>
 	<listener>
