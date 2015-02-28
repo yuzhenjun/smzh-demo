@@ -7,10 +7,8 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../common.lib/pom.xml</relativePath>
 	</parent>
-	<groupId>com.smzh</groupId>
 	<artifactId>common.web</artifactId>
 	<packaging>war</packaging>
-	<version>0.0.1-SNAPSHOT</version>
 	<name>common.web Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<properties>
