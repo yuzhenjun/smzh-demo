@@ -1,0 +1,164 @@
+<!-- 滚动监听 -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>滚动监听</title>
+<script src="../import/imports.js"></script>
+</head>
+<body>
+	<nav id="navbar-example2" class="navbar navbar-default navbar-static" role="navigation">
+	<!-- 在此设置背景色 bg-success -->
+		<div class="container-fluid ">
+			<div class="navbar-header ">
+				<button class="navbar-toggle collapsed" data-target=".bs-example-js-navbar-scrollspy" data-toggle="collapse" type="button">
+					<span class="sr-only">Toggle navigation</span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>
+				</button>
+				<span class="navbar-brand">滚动监听</span> 
+				<!-- <a class="navbar-brand" href="#">下拉菜单DEMO</a> -->
+			</div>
+			<div class="collapse navbar-collapse bs-example-js-navbar-scrollspy">
+				<ul class="nav navbar-nav">
+						<li class="active">
+							<a href="#fat">@fat</a>
+						</li>
+						<li class="">
+							<a href="#mdo">@mdo</a>
+						</li>
+						<li class="dropdown">
+						<a id="drop1" class="dropdown-toggle" aria-expanded="false" role="button" aria-haspopup="true" data-toggle="dropdown" href="#"> 
+						   	  下拉多级菜单
+							 <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" aria-labelledby="drop1" role="menu">
+								<li role="presentation">
+									<a href="#one_one" tabindex="-1" role="menuitem">一级菜单</a>
+								</li>
+								<li role="presentation">
+									<a href="#one_two" tabindex="-1" role="menuitem">一级菜单</a>
+								</li>
+								<li role="presentation">
+									<a href="#one_three" tabindex="-1" role="menuitem">一级菜单</a>
+								</li>
+								<!-- class="divider"添加分隔线 -->
+								<li class="divider" role="presentation"></li>
+								<li class="dropdown-submenu">
+									<a href="javascript:void(0);" tabindex="-1">一级菜单
+									</a>
+								    <ul class="dropdown-menu">
+									    <li>
+                                       		<a href="#two_one">二级菜单</a>
+                                    	</li>
+                                    	<li class="dropdown-submenu">
+                                        	<a href="#two_two">二级菜单</a>
+                                        	
+                                        	<ul class="dropdown-menu">
+											   <li>
+		                                       		<a href="javascript:void(0);">三级菜单</a>
+		                                    	</li>
+		                                    	<li>
+		                                        	<a href="javascript:void(0);">三级菜单</a>
+		                                    	</li>
+								   			</ul>
+                                    	</li>
+                                    	<li>
+                                        	<a href="#two_three">二级菜单</a>
+                                    	</li>
+								   </ul>
+								</li>
+						</ul>
+					</li>
+				<li class="dropdown">
+					<a id="drop2" class="dropdown-toggle" aria-expanded="false" role="button" aria-haspopup="true" data-toggle="dropdown" href="#">
+						  下拉菜单
+						 <span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu" aria-labelledby="drop2" role="menu">
+						<li role="presentation">
+							<a href="#three_one" tabindex="-1" role="menuitem">Action</a>
+						</li>
+						<li role="presentation">
+						 	<a href="#three_two" tabindex="-1" role="menuitem">Another action</a>
+					 	</li>
+						<li role="presentation">
+							<a href="#three_three" tabindex="-1" role="menuitem">Something else here</a>
+						</li>
+						<li class="divider" role="presentation"></li>
+						<li role="presentation">
+							<a href="#three_four" tabindex="-1" role="menuitem">Separated link</a>
+						</li>
+					</ul>
+				</li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li id="fat-menu" class="dropdown">
+						<a id="drop3" class="dropdown-toggle" aria-expanded="false" role="button" aria-haspopup="true" data-toggle="dropdown" href="#">
+							 超级管理员
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" aria-labelledby="drop3" role="menu">
+							<li role="presentation">
+								<a href="javascript:void(0);" tabindex="-1" role="menuitem"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> 邮件<span class="badge bg-warning">4</span></a>
+							</li>
+							<li role="presentation">
+								<a href="javascript:void(0);" tabindex="-1" role="menuitem"><span class=" glyphicon glyphicon-music" aria-hidden="true"></span> 音乐</a>
+							</li>
+							<li role="presentation">
+								<a href="javascript:void(0);" tabindex="-1" role="menuitem"><span class="glyphicon glyphicon-hand-up" aria-hidden="true"></span> 进入其他</a>
+							</li>
+							<li class="divider" role="presentation"></li>
+							<li role="presentation">
+								<a href="javascript:void(0);" tabindex="-1" role="menuitem"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> 注销</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				</div>
+			</div>
+		</nav>
+		
+	<div class="col-xs-9" data-offset="0" data-target="#navbar-example2" data-spy="scroll" style="height:200px;overflow:auto; position: relative;">
+	<h4 id="fat">@fat</h4>
+	<p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.</p>
+	<h4 id="mdo">@mdo</h4>
+	<p>Veniam marfa mustache skateboard, adipisicing fugiat velit pitchfork beard. Freegan beard aliqua cupidatat mcsweeney's vero. Cupidatat four loko nisi, ea helvetica nulla carles. Tattooed cosby sweater food truck, mcsweeney's quis non freegan vinyl. Lo-fi wes anderson +1 sartorial. Carles non aesthetic exercitation quis gentrify. Brooklyn adipisicing craft beer vice keytar deserunt.</p>
+	<h4 id="one_one">one_one</h4>
+	<p>Occaecat commodo aliqua delectus. Fap craft beer deserunt skateboard ea. Lomo bicycle rights adipisicing banh mi, velit ea sunt next level locavore single-origin coffee in magna veniam. High life id vinyl, echo park consequat quis aliquip banh mi pitchfork. Vero VHS est adipisicing. Consectetur nisi DIY minim messenger bag. Cred ex in, sustainable delectus consectetur fanny pack iphone.</p>
+	<h4 id="one_two">one_two</h4>
+	<p>In incididunt echo park, officia deserunt mcsweeney's proident master cleanse thundercats sapiente veniam. Excepteur VHS elit, proident shoreditch +1 biodiesel laborum craft beer. Single-origin coffee wayfarers irure four loko, cupidatat terry richardson master cleanse. Assumenda you probably haven't heard of them art party fanny pack, tattooed nulla cardigan tempor ad. Proident wolf nesciunt sartorial keffiyeh eu banh mi sustainable. Elit wolf voluptate, lo-fi ea portland before they sold out four loko. Locavore enim nostrud mlkshk brooklyn nesciunt.</p>
+	<h4 id="one_three">one_three</h4>
+	<p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.</p>
+	<p>Keytar twee blog, culpa messenger bag marfa whatever delectus food truck. Sapiente synth id assumenda. Locavore sed helvetica cliche irony, thundercats you probably haven't heard of them consequat hoodie gluten-free lo-fi fap aliquip. Labore elit placeat before they sold out, terry richardson proident brunch nesciunt quis cosby sweater pariatur keffiyeh ut helvetica artisan. Cardigan craft beer seitan readymade velit. VHS chambray laboris tempor veniam. Anim mollit minim commodo ullamco thundercats. </p>
+	<h4 id="two_one">two_one</h4>
+	<p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.</p>
+	<p>Keytar twee blog, culpa messenger bag marfa whatever delectus food truck. Sapiente synth id assumenda. Locavore sed helvetica cliche irony, thundercats you probably haven't heard of them consequat hoodie gluten-free lo-fi fap aliquip. Labore elit placeat before they sold out, terry richardson proident brunch nesciunt quis cosby sweater pariatur keffiyeh ut helvetica artisan. Cardigan craft beer seitan readymade velit. VHS chambray laboris tempor veniam. Anim mollit minim commodo ullamco thundercats. </p>
+	
+	<h4 id="two_two">two_two</h4>
+	<p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.</p>
+	<p>Keytar twee blog, culpa messenger bag marfa whatever delectus food truck. Sapiente synth id assumenda. Locavore sed helvetica cliche irony, thundercats you probably haven't heard of them consequat hoodie gluten-free lo-fi fap aliquip. Labore elit placeat before they sold out, terry richardson proident brunch nesciunt quis cosby sweater pariatur keffiyeh ut helvetica artisan. Cardigan craft beer seitan readymade velit. VHS chambray laboris tempor veniam. Anim mollit minim commodo ullamco thundercats. </p>
+	
+	<h4 id="two_three">two_three</h4>
+	<p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.</p>
+	<p>Keytar twee blog, culpa messenger bag marfa whatever delectus food truck. Sapiente synth id assumenda. Locavore sed helvetica cliche irony, thundercats you probably haven't heard of them consequat hoodie gluten-free lo-fi fap aliquip. Labore elit placeat before they sold out, terry richardson proident brunch nesciunt quis cosby sweater pariatur keffiyeh ut helvetica artisan. Cardigan craft beer seitan readymade velit. VHS chambray laboris tempor veniam. Anim mollit minim commodo ullamco thundercats. </p>
+	
+	<h4 id="three_one">three_one</h4>
+	<p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.</p>
+	<p>Keytar twee blog, culpa messenger bag marfa whatever delectus food truck. Sapiente synth id assumenda. Locavore sed helvetica cliche irony, thundercats you probably haven't heard of them consequat hoodie gluten-free lo-fi fap aliquip. Labore elit placeat before they sold out, terry richardson proident brunch nesciunt quis cosby sweater pariatur keffiyeh ut helvetica artisan. Cardigan craft beer seitan readymade velit. VHS chambray laboris tempor veniam. Anim mollit minim commodo ullamco thundercats. </p>
+	
+	<h4 id="three_two">three_two</h4>
+	<p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.</p>
+	<p>Keytar twee blog, culpa messenger bag marfa whatever delectus food truck. Sapiente synth id assumenda. Locavore sed helvetica cliche irony, thundercats you probably haven't heard of them consequat hoodie gluten-free lo-fi fap aliquip. Labore elit placeat before they sold out, terry richardson proident brunch nesciunt quis cosby sweater pariatur keffiyeh ut helvetica artisan. Cardigan craft beer seitan readymade velit. VHS chambray laboris tempor veniam. Anim mollit minim commodo ullamco thundercats. </p>
+	<h4 id="three_three">three_three</h4>
+	<p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.</p>
+	<p>Keytar twee blog, culpa messenger bag marfa whatever delectus food truck. Sapiente synth id assumenda. Locavore sed helvetica cliche irony, thundercats you probably haven't heard of them consequat hoodie gluten-free lo-fi fap aliquip. Labore elit placeat before they sold out, terry richardson proident brunch nesciunt quis cosby sweater pariatur keffiyeh ut helvetica artisan. Cardigan craft beer seitan readymade velit. VHS chambray laboris tempor veniam. Anim mollit minim commodo ullamco thundercats. </p>
+	
+	<h4 id="three_four">three_four</h4>
+	<p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.</p>
+	<p>Keytar twee blog, culpa messenger bag marfa whatever delectus food truck. Sapiente synth id assumenda. Locavore sed helvetica cliche irony, thundercats you probably haven't heard of them consequat hoodie gluten-free lo-fi fap aliquip. Labore elit placeat before they sold out, terry richardson proident brunch nesciunt quis cosby sweater pariatur keffiyeh ut helvetica artisan. Cardigan craft beer seitan readymade velit. VHS chambray laboris tempor veniam. Anim mollit minim commodo ullamco thundercats. </p>
+	
+	</div>
+</body>
+</html>

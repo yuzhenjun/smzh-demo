@@ -13,6 +13,7 @@
 	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
+		 <finalName>common.web</finalName>  
 	</properties>
 	<dependencies>
 		<dependency>
@@ -26,18 +27,40 @@
 			<artifactId>common.security</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>com.smzh</groupId>
+			<artifactId>common.web.core</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>war</type>
+		</dependency>
 	</dependencies>
 	<build>
-		<finalName>commom.web</finalName>
+		<finalName>common.web</finalName>
 		<plugins>
+			<!-- <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<overlays>
+						<overlay>
+							<groupId>com.smzh</groupId>
+							<artifactId>common.web.core</artifactId>
+							<excludes>  
+		                       <exclude>WEB-INF/lib/*</exclude>  
+		                       <exclude>WEB-INF/web.xml</exclude>  
+                   			</excludes>  
+						</overlay>
+					</overlays>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat6-maven-plugin</artifactId>
 				<version>${tomcat6-version}</version>
 				<configuration>
-					<path>/smzh</path>
+	                <path>/${finalName}</path>  
 				</configuration>
-			</plugin>
+			</plugin> -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>

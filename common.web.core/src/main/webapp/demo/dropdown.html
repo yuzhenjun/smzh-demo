@@ -7,7 +7,8 @@
 </head>
 <body>
 <div class="bs-example">
-	<nav id="navbar-example" class="navbar navbar-default navbar-static">
+<!-- 添加role="navigation"属性导航固定 -->
+	<nav id="navbar-example" class="navbar navbar-default navbar-static" role="navigation">
 	<!-- 在此设置背景色 bg-success -->
 		<div class="container-fluid ">
 			<div class="navbar-header ">
@@ -24,44 +25,65 @@
 				<ul class="nav navbar-nav">
 					<li class="dropdown">
 						<a id="drop1" class="dropdown-toggle" aria-expanded="false" role="button" aria-haspopup="true" data-toggle="dropdown" href="#"> 
-						   	  下拉菜单1
+						   	  下拉多级菜单
 							 <span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu" aria-labelledby="drop1" role="menu">
 								<li role="presentation">
-									<a href="#" tabindex="-1" role="menuitem">Action</a>
+									<a href="javascript:void(0);" tabindex="-1" role="menuitem">一级菜单</a>
 								</li>
 								<li role="presentation">
-									<a href="#" tabindex="-1" role="menuitem">Another action</a>
+									<a href="javascript:void(0);" tabindex="-1" role="menuitem">一级菜单</a>
 								</li>
 								<li role="presentation">
-									<a href="#" tabindex="-1" role="menuitem">Something else here</a>
+									<a href="javascript:void(0);" tabindex="-1" role="menuitem">一级菜单</a>
 								</li>
 								<!-- class="divider"添加分隔线 -->
 								<li class="divider" role="presentation"></li>
-								<li role="presentation">
-									<a href="#" tabindex="-1" role="menuitem">Separated link</a>
+								<li class="dropdown-submenu">
+									<a href="javascript:void(0);" tabindex="-1">一级菜单
+									</a>
+								    <ul class="dropdown-menu">
+									    <li>
+                                       		<a href="javascript:void(0);">二级菜单</a>
+                                    	</li>
+                                    	<li class="dropdown-submenu">
+                                        	<a href="javascript:void(0);">二级菜单</a>
+                                        	
+                                        	<ul class="dropdown-menu">
+											   <li>
+		                                       		<a href="javascript:void(0);">三级菜单</a>
+		                                    	</li>
+		                                    	<li>
+		                                        	<a href="javascript:void(0);">三级菜单</a>
+		                                    	</li>
+								   </ul>
+                                    	</li>
+                                    	<li>
+                                        	<a href="javascript:void(0);">二级菜单</a>
+                                    	</li>
+								   </ul>
 								</li>
 						</ul>
 					</li>
 				<li class="dropdown">
 					<a id="drop2" class="dropdown-toggle" aria-expanded="false" role="button" aria-haspopup="true" data-toggle="dropdown" href="#">
-						  下拉菜单2
+						  下拉菜单
 						 <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu" aria-labelledby="drop2" role="menu">
 						<li role="presentation">
-							<a href="#" tabindex="-1" role="menuitem">Action</a>
+							<a href="javascript:void(0);" tabindex="-1" role="menuitem">Action</a>
 						</li>
 						<li role="presentation">
-						 	<a href="#" tabindex="-1" role="menuitem">Another action</a>
+						 	<a href="javascript:void(0);" tabindex="-1" role="menuitem">Another action</a>
 					 	</li>
 						<li role="presentation">
-							<a href="#" tabindex="-1" role="menuitem">Something else here</a>
+							<a href="javascript:void(0);" tabindex="-1" role="menuitem">Something else here</a>
 						</li>
 						<li class="divider" role="presentation"></li>
 						<li role="presentation">
-							<a href="#" tabindex="-1" role="menuitem">Separated link</a>
+							<a href="javascript:void(0);" tabindex="-1" role="menuitem">Separated link</a>
 						</li>
 					</ul>
 				</li>
@@ -74,17 +96,17 @@
 						</a>
 						<ul class="dropdown-menu" aria-labelledby="drop3" role="menu">
 							<li role="presentation">
-								<a href="#" tabindex="-1" role="menuitem"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> 邮件<span class="badge bg-warning">4</span></a>
+								<a href="javascript:void(0);" tabindex="-1" role="menuitem"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> 邮件<span class="badge bg-warning">4</span></a>
 							</li>
 							<li role="presentation">
-								<a href="#" tabindex="-1" role="menuitem"><span class=" glyphicon glyphicon-music" aria-hidden="true"></span> 音乐</a>
+								<a href="javascript:void(0);" tabindex="-1" role="menuitem"><span class=" glyphicon glyphicon-music" aria-hidden="true"></span> 音乐</a>
 							</li>
 							<li role="presentation">
-								<a href="#" tabindex="-1" role="menuitem"><span class="glyphicon glyphicon-hand-up" aria-hidden="true"></span> 进入其他</a>
+								<a href="javascript:void(0);" tabindex="-1" role="menuitem"><span class="glyphicon glyphicon-hand-up" aria-hidden="true"></span> 进入其他</a>
 							</li>
 							<li class="divider" role="presentation"></li>
 							<li role="presentation">
-								<a href="#" tabindex="-1" role="menuitem"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> 注销</a>
+								<a href="javascript:void(0);" tabindex="-1" role="menuitem"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> 注销</a>
 							</li>
 						</ul>
 					</li>

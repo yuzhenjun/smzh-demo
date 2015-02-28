@@ -10,7 +10,14 @@
         <dependent-module archiveName="common.data-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/common.data/common.data">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module deploy-path="/" handle="module:/overlay/prj/common.web.core?includes=**/**&amp;excludes=META-INF/MANIFEST.MF">
+            <dependency-type>consumes</dependency-type>
+        </dependent-module>
+        <dependent-module deploy-path="/" handle="module:/overlay/slf/?includes=**/**&amp;excludes=META-INF/MANIFEST.MF">
+            <dependency-type>consumes</dependency-type>
+        </dependent-module>
         <property name="java-output-path" value="/common.web/target/classes"/>
-        <property name="context-root" value="commom.web"/>
+        <property name="context-root" value="common.web"/>
+        <property name="component.exclusion.patterns"/>
     </wb-module>
 </project-modules>
