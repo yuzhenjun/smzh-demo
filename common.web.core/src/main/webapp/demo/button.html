@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>按钮</title>
+<script src="../import/imports.js"></script>
+<script>
+	$(function() {
+		$('#myButton').on('click', function() {
+			var $btn = $(this).button('loading');
+			setTimeout(function() {
+				$btn.button('reset');
+			}, 3000);
+		});
+	});
+	$(function() {
+		$("#myButtons1 .btn").click(function() {
+			$(this).button('toggle');
+		});
+	});
+	$(function() {
+		$("#myButtons2 .btn").click(function() {
+			$(this).button('loading').delay(1000).queue(function() {
+			});
+		});
+	});
+	$(function() {
+		$("#myButtons3 .btn").click(function() {
+			$(this).button('loading').delay(1000).queue(function() {
+				$(this).button('reset');
+			});
+		});
+	});
+	$(function() {
+		$("#myButton4").click(function() {
+			$(this).button('loading').delay(1000).queue(function() {
+				$(this).button('complete');
+			});
+		});
+	});
+</script>
+</head>
+<body>
+	<h4>   如需向按钮添加加载状态，只需要简单地向 button 元素添加 data-loading-text="Loading..." 作为其属性即可</h4>
+	<button type="button" id="myButton" data-loading-text="加载中..."
+		class="btn btn-primary">加载网页</button>
+	<h4>演示 .button('toggle') 方法</h4>
+	<div id="myButtons1" class="bs-example">
+		<button type="button" class="btn btn-primary">原始</button>
+	</div>
+
+	<h4>演示 .button('loading') 方法</h4>
+	<div id="myButtons2" class="bs-example">
+		<button type="button" class="btn btn-primary"
+			data-loading-text="Loading...">原始</button>
+	</div>
+
+	<h4>演示 .button('reset') 方法</h4>
+	<div id="myButtons3" class="bs-example">
+		<button type="button" class="btn btn-primary"
+			data-loading-text="Loading...">原始</button>
+	</div>
+
+	<h4>演示 .button(string) 方法</h4>
+	<div>
+		<button type="button" class="btn btn-primary" id="myButton4"
+			data-complete-text="Loading finished">请点击我</button>
+	</div>
+	
+	<div>
+		<h4>您可以创建复选框组，并通过向 btn-group 添加 data 属性 data-toggle="buttons"
+			来添加复选框组的切换。</h4>
+		<div class="btn-group" data-toggle="buttons">
+			<label class="btn btn-primary active"> <input type="checkbox"
+				autocomplete="off" checked> Checkbox 1
+			</label> <label class="btn btn-primary"> <input type="checkbox"
+				autocomplete="off"> Checkbox 2
+			</label> <label class="btn btn-primary"> <input type="checkbox"
+				autocomplete="off"> Checkbox 3
+			</label>
+		</div>
+	</div>
+	<h4>您可以创建单选按钮组，并通过向 btn-group 添加 data 属性 data-toggle="buttons"
+		来添加单选按钮组的切换</h4>
+
+	<div class="btn-group" data-toggle="buttons">
+		<label class="btn btn-primary active"> <input type="radio"
+			name="options" id="option1" autocomplete="off" checked> Radio
+			1
+		</label> <label class="btn btn-primary"> <input type="radio"
+			name="options" id="option2" autocomplete="off"> Radio 2
+		</label> <label class="btn btn-primary"> <input type="radio"
+			name="options" id="option3" autocomplete="off"> Radio 3
+		</label>
+	</div>
+</body>
+</html>

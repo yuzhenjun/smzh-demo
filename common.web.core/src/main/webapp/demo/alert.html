@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>alert</title>
+<script src="../import/imports.js"></script>
+<script type="text/javascript">
+$(function () {
+	
+	/*
+	close.bs.alert 	当 close 方法被调用后立即触发此事件。
+	closed.bs.alert 	当警告框被关闭后（也即 CSS 过渡效果完毕之后）立即触发此事件。 
+	*/
+	$('#myAlert').on('close.bs.alert', function () {
+		  alert('确定要关闭吗?');
+		 return false;
+		})
+});
+</script>
+</head>
+<body>
+	<h4> 当使用 .close 按钮时，它必须是 .alert-dismissible 的第一个子元素，并且在它之前不能有任何文本内容。</h4>
+	<div class="alert alert-warning alert-dismissible fade in" role="alert" id='myAlert'>
+	<!-- 添加关闭功能属性，且必须是第一个元素 -->
+		<button class="close" aria-label="Close" data-dismiss="alert"
+			type="button">
+			<span aria-hidden="true">×</span>
+		</button>
+		可以在此处添加任何提示内容!!!
+	</div>
+	<div class="alert alert-danger alert-dismissible fade in" role="alert">
+		<button class="close" aria-label="Close" data-dismiss="alert"
+			type="button">
+			<span aria-hidden="true">×</span>
+		</button>
+		<h4>Oh snap! You got an error!</h4>
+		<p>Change this and that and try again. Duis mollis, est non
+			commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec
+			elit. Cras mattis consectetur purus sit amet fermentum.</p>
+		<p>
+			<button class="btn btn-danger" type="button">Take this
+				action</button>
+			<button class="btn btn-default" type="button">Or do this</button>
+		</p>
+	</div>
+</body>
+</html>

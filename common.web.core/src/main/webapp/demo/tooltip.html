@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>tooltip</title>
+<script src="../import/imports.js"></script>
+<script type="text/javascript">
+$(function () {
+	  $('[data-toggle="tooltip"]').tooltip();
+	  //$('#example').tooltip(options);设置tooltip参数 ，具体参数详见:http://v3.bootcss.com/javascript/#tooltips
+	})
+	
+	
+</script>
+
+</head>
+<body>
+<div style="margin-top:50px;margin-left:100px">
+<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="Tooltip on left">Tooltip on left</button>
+<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Tooltip on top</button>
+<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">Tooltip on bottom</button>
+<!-- HTML to write -->
+<a href="#" data-toggle="tooltip" title="Some tooltip text!">Hover over me</a>
+
+</div>
+
+</body>
+</html>

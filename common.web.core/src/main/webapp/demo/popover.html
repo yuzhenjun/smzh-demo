@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>弹出框</title>
+<script src="../import/imports.js"></script>
+<script type="text/javascript">
+$(function () {
+	  $('[data-toggle="popover"]').popover();
+	 // $('#example').popover(options)设置弹出框的效果，具体参数参见bootstrap：http://v3.bootcss.com/javascript/#popovers 
+	})
+	/* 	
+		show.bs.popover 	This event fires immediately when the show instance method is called.
+		shown.bs.popover 	This event is fired when the popover has been made visible to the user (will wait for CSS transitions to complete).
+		hide.bs.popover 	This event is fired immediately when the hide instance method has been called.
+		hidden.bs.popover 
+	*/
+	$('#myPopover').on('hidden.bs.popover', function () {
+		
+		
+	});
+</script>
+</head>
+<body>
+<!--弹出框的位置 data-placement=left ,top,bottom,right -->
+<button type="button"  id='myPopover' class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">点我弹出/隐藏弹出框</button>
+
+
+<!-- 为了更好的跨浏览器和跨平台效果，你必须使用 <a> 标签，不能使用 <button> 标签，并且，还必须包含 tabindex 属性。 -->
+<a tabindex="0" class="btn btn-lg btn-danger" role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">可消失的弹出框</a>
+</body>
+</html> 
