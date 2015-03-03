@@ -1,29 +1,230 @@
-<div id="link">My video</div>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>表格</title>
+<script src="../import/imports.js"></script>
+<script type="text/javascript">
+function priceSorter(a, b) {
+    a = +a.substring(1); // remove $
+    b = +b.substring(1);
+    if (a > b) return 1;
+    if (a < b) return -1;
+    return 0;
+}
+</script>
+</head>
+<body>
+<pre>
+基本表格
 
-<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">��</button>
-            </div>
-            <div class="modal-body">
-                <iframe width="400" height="300" frameborder="0" allowfullscreen=""></iframe>
-            </div>
-        </div>
-    </div>
+表格转换:初始化表格 ==> $table.bootstrapTable()  销毁表格==>$table.bootstrapTable('destroy');
+
+使用 align, halign 和 valign 来设置列和表头的对齐方式。:data-halign="right" data-align="center"
+ 
+表格排序 :data-sort-name="name" data-sort-order="desc"
+	使用 sorter列属性来定义表格的自定义排序。data-sorter
+</pre>
+<div class="col-xs-6">
+<table class="table table-hover table-striped" data-sort-name="id" data-sort-order="desc" data-toggle="table" data-url="../data/data1.json" data-cache="false" data-height="299">
+    <thead>
+        <tr>
+            <th data-field="id" data-halign="right" data-align="center"> <i class="glyphicon glyphicon-star"></i>Item ID</th>
+            <th data-field="name" data-halign="center" data-align="left" data-sortable="true">Item Name</th>
+            <th data-field="price" data-halign="left" data-align="right" data-sorter="priceSorter">Item Price</th>
+        </tr>
+    </thead>
+</table>
 </div>
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/jquery-1.10.1.min.js"><\/script>')</script>
-<script src="js/bootstrap.min.js"></script>
+<div class="col-xs-6">
+<div id="transform-buttons" class="btn-group btn-default">
+    <button class="btn btn-default" id="transform">
+        <i class="glyphicon glyphicon-transfer"></i> <span data-zh="转换" data-es="Transformar">Transform</span>
+    </button>
+    <button class="btn btn-default" id="destroy">
+        <i class="glyphicon glyphicon-trash"></i> <span data-zh="摧毁" data-es="Destruir">Destroy</span>
+    </button>
+</div>
+<table id="table-transform" data-toolbar="#transform-buttons" class="table table-hover table-striped" data-toggle="table" data-url="../data/data1.json" data-cache="false" data-height="299">
+    <thead>
+        <tr>
+            <th data-field="id">Item ID</th>
+            <th data-field="name">Item Name</th>
+            <th data-field="price">Item Price</th>
+        </tr>
+    </thead>
+</table>
 <script>
-    $('#link').click(function () {
-        var src = 'http://www.youtube.com/v/FSi2fJALDyQ&amp;autoplay=1';
-        $('#myModal').modal('show');
-        $('#myModal iframe').attr('src', src);
-    });
-
-    $('#myModal button').click(function () {
-        $('#myModal iframe').removeAttr('src');
+    $(function () {
+        var $table = $('#table-transform');
+        $('#transform').click(function () {
+            $table.bootstrapTable();
+        });
+        $('#destroy').click(function () {
+            $table.bootstrapTable('destroy');
+        });
     });
 </script>
+</div>
+
+<pre>
+分页：注意要添加 data-toggle="table"
+使用 sidePagination: 'server' 属性来定义分页是在服务器端。
+格式化表格:使用 formatter列属性来格式化表格列显示。
+ 隐藏表头:data-show-header="false"
+ 使用 showColumns, minimumCountColumns 属性和 visible, switchable 列属性去显示列菜单用于切换。
+ 
+表格事件：
+</pre>
+<div class="col-xs-12">
+基本分页:前端分页
+<table data-toggle="table" id="table-pagination" 
+       data-url="../data/data2.json" data-height="400" 
+       data-pagination="true" data-search="true">
+    <thead>
+        <tr>
+            <th data-field="state" data-checkbox="true"></th>
+            <th data-field="id" data-align="right" data-sortable="true">Item ID</th>
+            <th data-field="name" data-align="center" data-sortable="true">Item Name</th>
+            <th data-field="price" data-sortable="true" data-sorter="priceSorter">Item Price</th>
+        </tr>
+    </thead>
+</table>
+</div>
+
+<div class="col-xs-12">
+服务器端分页
+表格事件和方法
+<button class="btn btn-primary" id="get-selections">获取选中数据</button>
+<button class="btn btn-primary" id="get-data">获取所有数据</button>
+<button class="btn btn-primary" id="remove-data">移除数据</button>
+<button class="btn btn-primary" id="refresh">刷新</button>
+<table id="events-table" data-toggle="table" data-url="../table/data" data-height="400" 
+       data-side-pagination="server" data-pagination="true" 
+       data-page-list="[5, 10, 20, 50, 100, 200]" data-search="true"
+       data-show-columns="true">
+    <thead>
+    <tr>
+        <th data-field="state" data-checkbox="true"></th>
+        <th data-field="id" data-align="right" data-sortable="true">Item ID</th>
+        <th data-field="name" data-align="center" data-sortable="true" data-formatter="nameFormatter">Item Name</th>
+        <th data-field="price" data-sortable="true" data-formatter="priceFormatter">Item Price</th>
+    </tr>
+    </thead>
+</table>
+<script>
+$(function () {
+        $('#events-table').bootstrapTable({
+           /*  onAll: function (name, args) {
+                console.log('Event: onAll, data: ', args);
+            },
+            onClickRow: function (row) {
+            	 console.log('Event: onClickRow, data: ' + JSON.stringify(row));
+            },
+            onDblClickRow: function (row) {
+            	 console.log('Event: onDblClickRow, data: ' + JSON.stringify(row));
+            },
+            onSort: function (name, order) {
+            	  console.log('Event: onSort, data: ' + name + ', ' + order);
+            },
+            onCheck: function (row) {
+            	  console.log('Event: onCheck, data: ' + JSON.stringify(row));
+            },
+            onUncheck: function (row) {
+            	  console.log('Event: onUncheck, data: ' + JSON.stringify(row));
+            },
+            onCheckAll: function () {
+            	  console.log('Event: onCheckAll');
+            },
+            onUncheckAll: function () {
+            	  console.log('Event: onUncheckAll');
+            },
+            onLoadSuccess: function (data) {
+            	  console.log('Event: onLoadSuccess, data: ' + data);
+            },
+            onLoadError: function (status) {
+            	  console.log('Event: onLoadError, data: ' + status);
+            },
+            onColumnSwitch: function (field, checked) {
+            	  console.log('Event: onSort, data: ' + field + ', ' + checked);
+            },
+            onPageChange: function (number, size) {
+            	  console.log('Event: onPageChange, data: ' + number + ', ' + size);
+            },
+            onSearch: function (text) {
+            	  console.log('Event: onSearch, data: ' + text);
+            } */
+        });
+        /* 表格事件使用
+        .on('all.bs.table', function (e, name, args) {
+            console.log('Event:', name, ', data:', args);
+        }).on('click-row.bs.table', function (e, row, $element) {
+        	  console.log('Event: click-row.bs.table, data: ' + JSON.stringify(row));
+        }).on('dbl-click-row.bs.table', function (e, row, $element) {
+        	  console.log('Event: dbl-click-row.bs.table, data: ' + JSON.stringify(row));
+        }).on('sort.bs.table', function (e, name, order) {
+        	  console.log('Event: sort.bs.table, data: ' + name + ', ' + order);
+        }).on('check.bs.table', function (e, row) {
+        	  console.log('Event: check.bs.table, data: ' + JSON.stringify(row));
+        }).on('uncheck.bs.table', function (e, row) {
+        	  console.log('Event: uncheck.bs.table, data: ' + JSON.stringify(row));
+        }).on('check-all.bs.table', function (e) {
+        	  console.log('Event: check-all.bs.table');
+        }).on('uncheck-all.bs.table', function (e) {
+        	  console.log('Event: uncheck-all.bs.table');
+        }).on('load-success.bs.table', function (e, data) {
+        	  console.log('Event: load-success.bs.table');
+        }).on('load-error.bs.table', function (e, status) {
+        	  console.log('Event: load-error.bs.table, data: ' + status);
+        }).on('column-switch.bs.table', function (e, field, checked) {
+        	  console.log('Event: column-switch.bs.table, data: ' +
+                field + ', ' + checked);
+        }).on('page-change.bs.table', function (e, size, number) {
+        	  console.log('Event: page-change.bs.table, data: ' + number + ', ' + size);
+        }).on('search.bs.table', function (e, text) {
+        	  console.log('Event: search.bs.table, data: ' + text);
+        }); */
+        
+        $('#get-selections').click(function () {
+        	var $result = $('#events-table');
+        	alert('获取选中表格数据 ' + JSON.stringify($result.bootstrapTable('getSelections')));
+        });
+        $('#get-data').click(function () {
+        	var $result = $('#events-table');
+        	alert('获取表格所有数据: ' + JSON.stringify($result.bootstrapTable('getData')));
+        });
+        $('#remove-data').click(function () {
+        	var $result = $('#events-table');
+            var selects = $result.bootstrapTable('getSelections');
+                ids = $.map(selects, function (row) {
+                    return row.id;
+                });
+
+            $result.bootstrapTable('remove', {
+                field: 'id',
+                values: ids
+            });
+        });
+        $('#refresh').click(function () {
+        	var $result = $('#events-table');
+            $result.bootstrapTable('refresh', {
+                url: '../table/data'
+            });
+        });
+    }); 
+    function nameFormatter(value, row) {
+        var icon = row.id % 2 === 0 ? 'glyphicon-star' : 'glyphicon-star-empty'
+
+        return '<i class="glyphicon ' + icon + '"></i> ' + value;
+    }
+    function priceFormatter(value) {
+        // 16777215 == ffffff in decimal
+        var color = '#'+Math.floor(Math.random() * 6777215).toString(16);
+        return '<div  style="color: ' + color + '">' +
+                '<i class="glyphicon glyphicon-usd"></i>' +value.substring(1) +
+                '</div>';
+    }
+    </script>
+</div>
+</body>
+</html>

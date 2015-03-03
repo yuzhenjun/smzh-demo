@@ -24,17 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Scope("request")
 public class LoginController {
 
-    /**
-     *
-     */
-    private static final String LOGIN_URI = "login/login";
-
-    /**
-     * 登陆成功界面
-     */
-    private static final String LOGIN_SUSS_URI = "main";
-    
-    private static final String HAS_LOGIN = "redirect:/main";
+    private static final String HAS_LOGIN = "redirect:/index";
 
     /**
      * 进入登陆界面
@@ -61,7 +51,7 @@ public class LoginController {
 		if (subject.isAuthenticated()) {
 			return HAS_LOGIN;
 		}
-		return LOGIN_URI;
+		return "/login";
     }
 
 
@@ -69,9 +59,9 @@ public class LoginController {
      * 登录成功
      * @return
      */
-    @RequestMapping("/main")
-    public String loginSuss(){
-        return LOGIN_SUSS_URI;
+    @RequestMapping("/")
+    public String index(){
+        return "/main";
     }
 
 
