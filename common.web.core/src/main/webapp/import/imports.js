@@ -10,6 +10,8 @@ with(document){
 	write('<link rel="stylesheet" href="../css/dropdown-submenu.css">');
 	//使用表格插件
 	write('<link rel="stylesheet" href="../css/bootstrap-table.css">');
+	
+	write('<link rel="stylesheet" href="../css/bootstrap-select.min.css">');
 	//<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 	write('<script type="text/javascript" language="javascript" src="../js/jquery-1.11.1.min.js"></script>');
 	//<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
@@ -18,5 +20,9 @@ with(document){
 	write('<script type="text/javascript" language="javascript" src="../js/bootstrap-table.js"></script>');
 	
 	write('<script type="text/javascript" language="javascript" src="../js/bootstrap-table-zh-CN.js"></script>');
+	
+	write('<script type="text/javascript" language="javascript" src="../js/bootstrap-select.min.js"></script>');
+	
+	write('<script type="text/javascript" language="javascript" src="../js/defaults-zh_CN.min.js"></script>');
 	
 }

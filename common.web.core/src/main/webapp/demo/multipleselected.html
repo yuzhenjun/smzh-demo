@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>多选框</title>
+<script src="../import/imports.js"></script>
+<script type="text/javascript">
+	$(function() {
+		 $("#myselect").selectpicker('selectAll');
+		 $('.selectpicker').selectpicker({
+			style : 'btn-info',
+			size : 'auto'
+		}); 
+		
+	});
+</script>
+<style type="text/css">
+.special {
+	font-style: italic;
+	font-weight: bold !important;
+	color: #bc0000 !important;
+	background: #000;
+}
+</style>
+</head>
+<body>
+	<pre>
+基本多选框添加selectpicker
+添加属性：
+ $('.selectpicker').selectpicker({
+      style: 'btn-info'
+  });
+  
+  或使用;data-style="btn-primary" btn-info btn-success btn-warning btn-danger btn-inverse
+  
+  添加搜索框：data-live-search="true"
+  
+ 选择个数大于0时显示格式化显示data-selected-text-format="count>0" 
+ 
+ 限制选择的个数： data-max-option
+ 
+title:在未选择任何选项时显示 
+
+显示箭头：show-menu-arrow show-tick
+
+使用 col-sm-2设置宽度或者使用data-width="auto" data-width="100px" data-width="75%"
+
+使用disabled属性禁用多选框 使用disabled="disabled"可以使某一选项禁用
+
+设置在显示框显示的个数data-size="auto"自适应 data-size="5"
+
+添加分隔线data-divider="true"
+
+参考网址：<a href="http://silviomoreto.github.io/bootstrap-select/">http://silviomoreto.github.io/bootstrap-select/</a>
+</pre>
+	<div class="row-fluid">
+		<select multiple
+			class="selectpicker show-tick show-menu-arrow col-sm-2"
+			data-live-search="true" data-selected-text-format="count>0"
+			data-max-option="2">
+			<option  data-icon="glyphicon-heart">123</option>
+			<option class="special">1234</option>
+			 <option data-divider="true"></option>
+			<option >12345</option>
+			<option>123</option>
+			<option class="special">1234</option>
+			<option>12345</option>
+		</select> 
+		<select multiple class="selectpicker show-tick show-menu-arrow"
+			data-live-search="true" data-selected-text-format="count>0"
+			data-max-option="2" data-width="auto" disabled>
+			<option>123</option>
+			<option class="special">1234</option>
+			<option>12345</option>
+		</select> 
+		<select class="selectpicker show-tick show-menu-arrow">
+			<optgroup label="Picnic" disabled>
+				<option>Mustard</option>
+				<option>Ketchup</option>
+				<option>Relish</option>
+			</optgroup>
+			<optgroup label="Camping">
+				<option>Tent</option>
+				<option>Flashlight</option>
+				<option>Toilet Paper</option>
+			</optgroup>
+		</select>
+		
+		<select id="myselect" class="selectpicker show-tick show-menu-arrow" multiple
+			data-live-search="true" data-selected-text-format="count>0" >
+			<option>123</option>
+			<option >1234</option>
+			<option>12345</option>
+			<option>123</option>
+			<option>1234</option>
+			<option>12345</option>
+		</select> 
+	</div>
+	
+	<pre>
+	方法：
+	
+	
+	
+	</pre>
+</body>
+</html>
