@@ -6,11 +6,16 @@
 <script src="../import/imports.js"></script>
 <script type="text/javascript">
 	$(function() {
-		 $("#myselect").selectpicker('selectAll');
+		//$('#myselect').selectpicker('selectAll');
 		 $('.selectpicker').selectpicker({
 			style : 'btn-info',
 			size : 'auto'
 		}); 
+		 
+		  $('#getData').on('click',function(){
+			  console.log($('#myselect').selectpicker('val')); 
+			  console.log($('#myselect').selectpicker('render')); 
+		  });
 		
 	});
 </script>
@@ -61,16 +66,16 @@ title:在未选择任何选项时显示
 			data-live-search="true" data-selected-text-format="count>0"
 			data-max-option="2">
 			<option  data-icon="glyphicon-heart">123</option>
-			<option class="special">1234</option>
-			 <option data-divider="true"></option>
+			<option>1234</option>
 			<option >12345</option>
+			<option data-divider="true"></option>
 			<option>123</option>
 			<option class="special">1234</option>
 			<option>12345</option>
 		</select> 
 		<select multiple class="selectpicker show-tick show-menu-arrow"
 			data-live-search="true" data-selected-text-format="count>0"
-			data-max-option="2" data-width="auto" disabled>
+			data-max-option="2" data-width="auto">
 			<option>123</option>
 			<option class="special">1234</option>
 			<option>12345</option>
@@ -90,18 +95,21 @@ title:在未选择任何选项时显示
 		
 		<select id="myselect" class="selectpicker  show-tick show-menu-arrow" multiple
 			data-live-search="true" data-selected-text-format="count>0" >
-			<option>123</option>
-			<option >1234</option>
-			<option>12345</option>
-			<option>123</option>
-			<option>1234</option>
-			<option>12345</option>
+			<option value="1">123</option>
+			<option value="23">1234</option>
+			<option value="234">12345</option>
+			<option value="231">123</option>
+			<option value="111">1234</option>
+			<option value="345">12345</option>
 		</select> 
+		<button id="getData" class="btn btn-primary">获取select的值</button>
 	</div>
 	
 	<pre>
 	方法：
-	
+	$('#myselect').selectpicker('selectAll');全选
+	$('#myselect').selectpicker('deselectAll');取消全选
+	$('#myselect').selectpicker('val');获取value值
 	
 	
 	</pre>
