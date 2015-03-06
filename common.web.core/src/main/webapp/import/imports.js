@@ -21,6 +21,7 @@ with(document){
 	
 	write('<script type="text/javascript" language="javascript" src="../js/bootstrap-table-zh-CN.js"></script>');
 	
+	/*版本为 Bootstrap-select v1.6.4*/
 	write('<script type="text/javascript" language="javascript" src="../js/bootstrap-select.min.js"></script>');
 	
 	write('<script type="text/javascript" language="javascript" src="../js/defaults-zh_CN.min.js"></script>');
