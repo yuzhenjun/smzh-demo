@@ -12,18 +12,28 @@ with(document){
 	write('<link rel="stylesheet" href="../css/bootstrap-table.css">');
 	
 	write('<link rel="stylesheet" href="../css/bootstrap-select.min.css">');
+	
+	write('<link rel="stylesheet" href="../css/jquery-ui.min.css">');
+	
+	write('<link rel="stylesheet" href="../css/datetimepicker.css">');
+	
 	//<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 	write('<script type="text/javascript" language="javascript" src="../js/jquery-1.11.1.min.js"></script>');
 	//<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 	write('<script type="text/javascript" language="javascript" src="../js/bootstrap.min.js"></script>');
 	
+	/*引入表格插件*/
 	write('<script type="text/javascript" language="javascript" src="../js/bootstrap-table.js"></script>');
-	
 	write('<script type="text/javascript" language="javascript" src="../js/bootstrap-table-zh-CN.js"></script>');
 	
 	/*版本为 Bootstrap-select v1.6.4*/
 	write('<script type="text/javascript" language="javascript" src="../js/bootstrap-select.min.js"></script>');
-	
 	write('<script type="text/javascript" language="javascript" src="../js/defaults-zh_CN.min.js"></script>');
+	
+	/*引入日历插件*/
+	write('<script type="text/javascript" language="javascript" src="../js/jquery-ui.min.js"></script>');
+	write('<script type="text/javascript" language="javascript" src="../js/jquery-ui-timepicker-addon.min.js"></script>');
+	write('<script type="text/javascript" language="javascript" src="../js/jquery.ui.datepicker-zh-CN.js"></script>');
+	write('<script type="text/javascript" language="javascript" src="../js/jquery-ui-timepicker-zh-CN.js"></script>');
 	
 }

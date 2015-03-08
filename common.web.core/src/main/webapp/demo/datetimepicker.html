@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>日历控件</title>
+<script src="../import/imports.js"></script>
+<script type="text/javascript">
+$(function() {
+	$('#example').datetimepicker({
+		timeFormat:'hh:mm',
+		dateFormat:'yy-mm-dd',
+		onSelect:function(){
+			
+		}
+	});
+	$('#example').datetimepicker( 'setDate' , new Date()) ;
+	$("#gettime").on('click',function(){
+		console.log($('#example').datetimepicker());
+		alert($('#example').datetimepicker('getDate'));
+	});
+	$("#example2").datepicker(); // 日期  
+	$('#example2').datetimepicker( 'setDate' , new Date()) ;
+	$("#example3").timepicker(); // 时分秒  
+	$('#example3').datetimepicker( 'setDate' , new Date()) ;
+	
+	$('#datepicker').datepicker();
+});
+</script>
+</head>
+<body>
+
+<pre>
+jqueryui.com/datepicker
+
+初始化日历：datetimepicker();显示日期和时间  datepicker显示日期   timepicker显示时间
+	$('#example').datetimepicker({
+		timeFormat:'hh:mm:ss',//时间格式化 ：hh:mm:ss显示时分秒 hh:mm显示时分 hh 显示小时
+		dateFormat:'yy-mm-dd',//日期格式化
+		showOn: "button",//"button" for trigger button, or "both" for either
+		buttonImageOnly: true,
+		buttonImage: "../images/date.png"//以上为显示日期图标
+		onSelect:function(){
+			//添加逻辑
+		}
+	});
+	使用div可以将日历显示在div块中
+	设置时间：
+	$('#example').datetimepicker( 'setDate' , new Date()) ;
+
+	获取时间：
+	$('#example').datetimepicker('getDate')
+	
+	
+	方法：
+	beforeShowDay
+	beforeShow
+	onSelect
+	onChangeMonthYear
+	onClose
+</pre>
+<div class="container-fluid">
+<div id="datepicker" class="col-xs-3"></div>
+<div class="col-xs-9">
+<input class="datetimepicker" type="text" id="example2"/>
+<input class="datetimepicker" type="text" id="example3"/>	 
+<input class="datetimepicker" type="text" id="example"/>
+<button class="btn btn-primary" id="gettime">获取时间</button>
+</div>
+</div>   
+</body>
+</html>
