@@ -36,4 +36,8 @@ with(document){
 	write('<script type="text/javascript" language="javascript" src="../js/jquery.ui.datepicker-zh-CN.js"></script>');
 	write('<script type="text/javascript" language="javascript" src="../js/jquery-ui-timepicker-zh-CN.js"></script>');
 	
+	/*引入jstree*/
+	write('<link rel="stylesheet" href="../js/jstree/style.min.css">');
+	write('<script type="text/javascript" language="javascript" src="../js/jstree/jstree.min.js"></script>');
+	
 }

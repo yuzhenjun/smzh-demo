@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>树</title>
+<script src="../import/imports.js"></script>
+<script type="text/javascript">
+$(function() {
+	 $.get('../tree',function (data) {
+			$('#jstree').jstree({
+				'plugins':["checkbox"], 
+				"multiple" : true,
+				'core' : {
+				"multiple" : true,//设置单选或多选
+				"animation" : 1,
+					'data': data,
+					'themes':{
+						'icons':false,//显示文件夹图标 true
+					}
+				},
+			});
+	 });
+	 
+	 $.get('../tree',function (data) {
+			$('#jstree2').jstree({
+				'plugins':["checkbox"], 
+				"multiple" : true,
+				'core' : {
+				"multiple" : true,//设置单选或多选
+				"animation" : 1,
+					'data': data,
+					'themes':{
+						'icons':true,//显示文件夹图标 true
+					}
+				},
+			});
+	 });
+	 
+	 $("#getnode").on('click',function(){
+		 var jstree=$('#jstree').jstree();
+		 console.log(jstree);
+		 jstree.select_all();
+		 console.log(jstree.get_checked());
+	 });
+
+});
+</script>
+</head>
+<body>
+<div class="container-fluid">
+<pre>
+ var jstree=$('#jstree').jstree();获取jstree对象
+</pre>
+  <div id="jstree" name="pids" class="col-xs-3"></div><button class="btn btn-primary" id="getnode">获取节点数据</button>
+   <div id="jstree2" name="pids" class="col-xs-3"></div>
+</div>
+</body>
+</html>
