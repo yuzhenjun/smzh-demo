@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>树</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../import/imports.js"></script>
+<script type="text/javascript">
+	$(function() {
+		//$.jstree.defaults.core.theme.variant = "large";
+		$('#jstree').jstree();
+		$('#jstree2').jstree({
+			'plugins':["wholerow","checkbox"], 
+			'core' : {
+			"multiple" : true,//设置单选或多选
+			"animation" : 1,
+			'url':'',//请求dizhi
+			'data' : [
+				{
+					"text" : "Same but with checkboxes",
+					"children" : [
+						{ "text" : "initially selected", "state" : { "selected" : true } },
+						{ "text" : "custom icon URL", "icon" : "http://jstree.com/tree-icon.png" },
+						{ "text" : "initially open", "state" : { "opened" : true }, "children" : [ "Another node" ] },
+						{ "text" : "custom icon class", "icon" : "glyphicon glyphicon-leaf" }
+					]
+				},
+				"And wholerow selection"
+			],
+		  'themes':{
+				//'icons':false,//显示文件夹图标 true
+			}
+		},
+		"checkbox" : {
+		    "keep_selected_style" : true
+		  }
+		});
+		
+		$('#jstree3').jstree({
+			'plugins':["checkbox"], 
+			'core' : {
+				'data' : {
+				    "url" : "../tree",
+					"data" : function (node) {
+						console.log(node);
+						return { "id" : node.id };
+					}
+				},
+				'themes':{
+					'icons':false,//显示文件夹图标 true
+				}
+			}
+		}).bind('click.jstree',".jstree-wholerow",function(event){//设置绑定事件
+			console.log(event);
+		     // alert('hello');
+	    });
+		
+		$('#click').on('click',function(){
+			
+			console.log($('#jstree3').jstree());
+			//获取选中节点的id
+			console.log($('#jstree3').jstree().get_selected());
+			console.log($('#jstree3').jstree().get_state());
+			//全选
+			//$('#jstree3').jstree().check_all();
+			//全不选
+			//$('#jstree3').jstree().deselect_all();
+			//收起全部节点
+			$('#jstree3').jstree().close_all();
+			//根据id判断是否选中
+			console.log($('#jstree3').jstree().is_checked(1));
+			
+		});
+	});
+</script>
+</head>
+<body>
+	<div class="container-fluid">
+	<pre>
+	$(function() {
+		//$.jstree.defaults.core.theme.variant = "large";
+		$('#jstree').jstree();
+		$('#jstree2').jstree({
+			'plugins':["wholerow","checkbox"], 
+			'core' : {
+			"multiple" : true,//设置单选或多选
+			"animation" : 1,
+			'url':'',//请求dizhi
+			'data' : [
+				{
+					"text" : "Same but with checkboxes",
+					"children" : [
+						{ "text" : "initially selected", "state" : { "selected" : true } },
+						{ "text" : "custom icon URL", "icon" : "http://jstree.com/tree-icon.png" },
+						{ "text" : "initially open", "state" : { "opened" : true }, "children" : [ "Another node" ] },
+						{ "text" : "custom icon class", "icon" : "glyphicon glyphicon-leaf" }
+					]
+				},
+				"And wholerow selection"
+			],
+		  'themes':{
+				//'icons':false,//显示文件夹图标 true
+			}
+		},
+		"checkbox" : {
+		    "keep_selected_style" : true
+		  }
+		});
+		
+		$('#jstree3').jstree({
+			'plugins':["checkbox"], 
+			'core' : {
+				'data' : {
+				    "url" : "../tree",
+					"data" : function (node) {
+						console.log(node);
+						return { "id" : node.id };
+					}
+				},
+				'themes':{
+					'icons':false,//显示文件夹图标 true
+				}
+			}
+		}).bind('click.jstree',".jstree-wholerow",function(event){//设置绑定事件
+			console.log(event);
+		     // alert('hello');
+	    });
+		
+		$('#click').on('click',function(){
+			
+			console.log($('#jstree3').jstree());
+			//获取选中节点的id
+			console.log($('#jstree3').jstree().get_selected());
+			console.log($('#jstree3').jstree().get_state());
+			//全选
+			//$('#jstree3').jstree().check_all();
+			//全不选
+			//$('#jstree3').jstree().deselect_all();
+			//收起全部节点
+			$('#jstree3').jstree().close_all();
+			//根据id判断是否选中
+			console.log($('#jstree3').jstree().is_checked(1));
+			
+		});
+	});
+	</pre>
+		<div id="jstree" class="col-xs-3">
+			<!-- in this example the tree is populated from inline HTML -->
+			<ul>
+				<li>Root node 1
+					<ul>
+						<li data-jstree='{ "selected" : true ,"plugins":"checkbox"}'><a href="#"><em>initially</em>
+								<strong>selected</strong></a></li>
+						<li data-jstree='{ "icon" : "http://jstree.com/tree-icon.png" }'>custom
+							icon URL</li>
+						<li data-jstree='{ "opened" : true }'>initially open
+							<ul>
+								<li>Another node</li>
+							</ul>
+						</li>
+						<li data-jstree='{ "icon" : "glyphicon glyphicon-leaf" }'>Custom
+							icon class (bootstrap)</li>
+					</ul>
+				</li>
+				<li><a href="http://www.jstree.com">Root node 2</a></li>
+			</ul>
+		</div>
+		<div id="jstree2" class="col-xs-3" style="margin-top:2em;"></div>
+		<div id="jstree3" class="col-xs-3" style="margin-top:2em;"></div>
+		<button id="click" class="btn btn-primary">获取节点数据</button>
+	</div>
+</body>
+</html>
