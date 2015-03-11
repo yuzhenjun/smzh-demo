@@ -18,9 +18,14 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
-    		<dependency>
+    <!-- 	<dependency>
 			<groupId>com.smzh</groupId>
 			<artifactId>common.data</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency> -->
+		<dependency>
+			<groupId>com.smzh</groupId>
+			<artifactId>common.security</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
   </dependencies>

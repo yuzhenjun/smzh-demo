@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- common.web.core-->
+<!-- common.web-->
 <provider type="Traffic" name="Dnion">
 <date name="${date}">
 <Product name="${name}">

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+
+    <!-- 基于Form表单的身份验证过滤器 -->
+    <bean id="formAuthenticationFilter" class="org.apache.shiro.web.filter.authc.FormAuthenticationFilter">
+        <property name="usernameParam" value="username"/>
+        <property name="passwordParam" value="password"/>
+        <property name="rememberMeParam" value="remember"/>
+        <property name="loginUrl" value="/login"/>
+    </bean>
+    <!-- Shiro的Web过滤器 -->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"/>
+        <property name="loginUrl" value="/login"/>
+        <!-- <property name="successUrl" value="/index"/> -->
+        <property name="filters">
+            <util:map>
+                <entry key="authc" value-ref="formAuthenticationFilter"/>
+                <entry key="sysUser" value-ref="sysUserFilter"/>
+                <entry key="user" value-ref="userFilter"/>
+            </util:map>
+        </property>
+        <property name="filterChainDefinitions">
+            <value>
+                /css/** = anon
+                /js/** = anon
+                /image/** = anon
+                /login = authc
+                /userLogin= authc
+                /logout= logout
+                /** =user,sysUser
+            </value>
+        </property>
+    </bean>
+    
+<!--     缓存配置 start
+    <bean id="methodCacheInterceptor" class="com.sihuatech.cache.aop.MethodCacheInterceptor">
+	</bean>
+
+	<bean id="methodCachePointCut"
+		class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+		<property name="advice">
+			<ref bean="methodCacheInterceptor" />
+		</property>
+		<property name="patterns">
+			<list>
+				<value>com.sihuatech.expresslane.portal.service.*.getService.*</value>
+			</list>
+		</property>
+	</bean> -->
+	<!-- 缓存配置 end -->
+</beans>
