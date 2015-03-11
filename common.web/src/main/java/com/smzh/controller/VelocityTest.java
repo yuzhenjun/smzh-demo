@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -24,6 +25,7 @@ import com.smzh.beans.Traffic;
 @RequestMapping("vm")
 public class VelocityTest {
 	
+	@Resource(name="velocityEngine")
 	private VelocityEngine velocityEngine;
 	
 	 @RequestMapping(method = RequestMethod.GET)  
@@ -56,7 +58,6 @@ public class VelocityTest {
 		 * 第三种方式
 		 */
 		Map<String, Object> context=new HashMap<String, Object>();
-		String xml = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, "rtmptraffice.vm","UTF-8", context);
 		context.put("date", new Date());
 		context.put("name","zhenjun");
 		List<Traffic> list=new ArrayList<Traffic>();
@@ -68,11 +69,13 @@ public class VelocityTest {
 		}
 		resp.setContentType("text/xml");
 		context.put("result", list);
+		String xml = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, "rtmptraffice.vm","UTF-8", context);
 		PrintWriter writer =  resp.getWriter();
 		writer.print(xml);
 		writer.flush();
 		writer.close();
-	}
+	 }
+
 	public void setVelocityEngine(VelocityEngine velocityEngine) {
 		this.velocityEngine = velocityEngine;
 	}
