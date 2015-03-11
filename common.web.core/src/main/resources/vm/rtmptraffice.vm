@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<provider type="Traffic" name="Dnion">
+<date name="${date}">
+<Product name="${name}">
+#foreach( $data in $result)
+<Traffice time="${data.time}">${data.traffice}</Traffice>
+#end
+</Product>
+</date>
+</provider>

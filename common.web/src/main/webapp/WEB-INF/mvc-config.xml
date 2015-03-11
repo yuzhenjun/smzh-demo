@@ -17,22 +17,21 @@
 	<mvc:resources location="/fonts/" mapping="/fonts/**"></mvc:resources>
 	<mvc:resources location="/data/" mapping="/data/**"></mvc:resources>
 	 <!-- 配置velocity引擎 -->  
-    <bean id="velocityConfigurer"  
-        class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">  
-        <property name="resourceLoaderPath" value="/vm" /><!-- 模板存放的路径 -->  
-         <property name="configLocation" value="classpath:conf/velocity.properties" />
-        <!-- <property name="velocityProperties">  
+       <bean id="velocityConfigurer"  class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">  
+       <property name="resourceLoaderPath" value="/vm" /><!-- 模板存放的路径 -->  
+       <property name="velocityProperties">  
             <props>  
-                <prop key="input.encoding">UTF-8</prop>  
+                <prop key="resource.loader">file</prop><!--   模板加载器类型，默认为文件，可定义多个 -->
+                <prop key="file.resource.loader.class">org.apache.velocity.runtime.resource.loader.FileResourceLoader</prop><!--加载器类名称  -->  
+                <prop key="input.encoding">UTF-8</prop>  <!--编码  -->
                 <prop key="output.encoding">UTF-8</prop>  
             </props>  
-        </property>   -->
-    </bean>  
+       </property>
+    </bean> 
 	
-	  <bean id="velocityViewResolver" class = "org.springframework.web.servlet.view.velocity.VelocityViewResolver">
+	 <bean id="velocityViewResolver" class = "org.springframework.web.servlet.view.velocity.VelocityViewResolver">
          <property name="order" value="0" />
          <property name="contentType" value="text/html;charset=UTF-8" />
-         <property name="requestContextAttribute" value="req"/>
     </bean>
     
 	<!-- FreeMarker环境配置 -->
@@ -45,21 +44,17 @@
 		</property>
 	</bean>
 	<bean id="freeMarkerViewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
-<!-- 		<property name="cache" value="true"/>
-		<property name="prefix" value="/"/>
-		<property name="suffix" value=".ftl"/> -->
 		<property name="contentType" value="text/html;charset=UTF-8" />
 		<property name="order" value="1" />
 	</bean>
 	<!--多个视图解析是InternalResourceViewResolver order属性要设置成最大 -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="viewClass"
-			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
 		<property name="prefix" value="/jsp" />
 		<property name="suffix" value=".jsp" />
 		<property name="contentType" value="text/html;charset=UTF-8" />
-		<property name="order" value="1" />
+		<property name="order" value="2" />
 	</bean>
 
 	<import resource="spring-mvc-shiro.xml" />

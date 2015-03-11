@@ -11,6 +11,7 @@
             classpath:spring/application-config.xml
             classpath:spring-config-shiro.xml
             classpath:spring/spring-config-login.xml
+            classpath:spring/spring-config.xml
         </param-value>
 	</context-param>
 	<listener>
