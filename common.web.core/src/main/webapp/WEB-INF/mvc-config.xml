@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc
+	   http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	<context:component-scan base-package="com.smzh.**.controller"></context:component-scan>
+	<context:component-scan base-package="com.smzh.**.service"/>
+	<mvc:annotation-driven />  
+	 <mvc:default-servlet-handler/>
+	<mvc:resources location="/css/" mapping="/css/**"></mvc:resources>
+	<mvc:resources location="/images/" mapping="/images/**"></mvc:resources>
+	<mvc:resources location="/js/" mapping="/js/**"></mvc:resources>
+	<mvc:resources location="/fonts/" mapping="/fonts/**"></mvc:resources>
+	<mvc:resources location="/data/" mapping="/data/**"></mvc:resources>
+	 <!-- 配置velocity引擎 -->  
+       <bean id="velocityConfigurer"  class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">  
+       <property name="resourceLoaderPath" value="/vm" /><!-- 模板存放的路径 -->  
+       <property name="velocityProperties">  
+            <props>  
+                <prop key="resource.loader">file</prop><!--   模板加载器类型，默认为文件，可定义多个 -->
+                <prop key="file.resource.loader.class">org.apache.velocity.runtime.resource.loader.FileResourceLoader</prop><!--加载器类名称  -->  
+                <prop key="input.encoding">UTF-8</prop>  <!--编码  -->
+                <prop key="output.encoding">UTF-8</prop>  
+            </props>  
+       </property>
+    </bean> 
+	
+	 <bean id="velocityViewResolver" class = "org.springframework.web.servlet.view.velocity.VelocityViewResolver">
+         <property name="order" value="0" />
+         <property name="contentType" value="text/html;charset=UTF-8" />
+    </bean>
+    
+	<!-- FreeMarker环境配置 -->
+	<bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+		<property name="templateLoaderPath" value="/ftl"/>
+		<property name="freemarkerSettings">
+			<props>
+				<prop key="defaultEncoding">UTF-8</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="freeMarkerViewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+		<property name="contentType" value="text/html;charset=UTF-8" />
+		<property name="order" value="1" />
+	</bean>
+	<!--多个视图解析是InternalResourceViewResolver order属性要设置成最大 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/jsp" />
+		<property name="suffix" value=".jsp" />
+		<property name="contentType" value="text/html;charset=UTF-8" />
+		<property name="order" value="2" />
+	</bean>
+
+	<import resource="spring-mvc-shiro.xml" />
+</beans>
