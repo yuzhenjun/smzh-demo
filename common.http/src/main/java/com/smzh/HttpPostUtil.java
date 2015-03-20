@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 import org.apache.http.HttpEntity;
+import org.apache.http.HttpStatus;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -37,9 +38,12 @@ public class HttpPostUtil {
 			post.setEntity(params);
 			CloseableHttpResponse response = client.execute(post);
 			System.out.println(response.getStatusLine().getStatusCode());
-			for (Cookie cookie : cookieStore.getCookies()){
-				System.out.println(cookie);
+			if(response.getStatusLine().getStatusCode()==HttpStatus.SC_OK){
+				for (Cookie cookie : cookieStore.getCookies()){
+					System.out.println(cookie);
+				}
 			}
+			
 				
 			response.close();
 		} catch (ClientProtocolException e) {
