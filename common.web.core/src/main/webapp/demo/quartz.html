@@ -5,17 +5,19 @@
 <title>定时显示</title>
 <script src="../import/imports.js"></script>
 <script type="text/javascript">
-$(function(){
-	var timerId =countdown(new Date(),
-				    function(ts) {
-				      document.getElementById('counter').innerHTML = ts.toHTML("strong");
-				    },
-				    countdown.MINUTES).toString();
+	$(function() {
+		$('#countdown').countdown({
+			until: 5,  
+			onExpiry: function(){
+				alert(11);
+			},
+			format : 'MS'
+		});
 	});
 </script>
 </head>
 <body>
 
-<div id="counter"></div>
+	<div id="countdown"></div>
 </body>
 </html>

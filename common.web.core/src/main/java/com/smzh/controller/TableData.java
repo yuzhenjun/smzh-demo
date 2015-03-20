@@ -7,8 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.smzh.beans.SearchResult;
 import com.smzh.beans.TableBean;
-import com.smzh.util.SearchResult;
 
 @Controller
 @RequestMapping("table")

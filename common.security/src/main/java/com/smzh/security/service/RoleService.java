@@ -10,9 +10,9 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.smzh.beans.SearchResult;
 import com.smzh.security.dao.IRoleDao;
 import com.smzh.security.entity.Role;
-import com.smzh.util.SearchResult;
 
 @Service("roleService")
 public class RoleService implements IRoleServie {

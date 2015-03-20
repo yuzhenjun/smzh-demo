@@ -1,4 +1,4 @@
-package com.smzh.util;
+package com.smzh.beans;
 
 import java.util.List;
 

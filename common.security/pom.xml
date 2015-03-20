@@ -7,9 +7,7 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../common.lib/pom.xml</relativePath>
 	</parent>
-	<groupId>com.smzh</groupId>
 	<artifactId>common.security</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>common.security</name>
@@ -33,8 +31,20 @@
 		</dependency>
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-core</artifactId>
+			<version>1.2.2</version>
+				<classifier>sources</classifier>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
 			<artifactId>shiro-web</artifactId>
 			<version>1.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-web</artifactId>
+			<version>1.2.2</version>
+			<classifier>sources</classifier>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
@@ -43,13 +53,31 @@
 		</dependency>
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-ehcache</artifactId>
+			<version>1.2.2</version>
+			<classifier>sources</classifier>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
 			<artifactId>shiro-quartz</artifactId>
+			<version>1.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-quartz</artifactId>
+			<version>1.2.2</version>
+			<classifier>sources</classifier>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring</artifactId>
 			<version>1.2.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
 			<artifactId>shiro-spring</artifactId>
 			<version>1.2.2</version>
+			<classifier>sources</classifier>
 		</dependency>
 		<dependency>
 			<groupId>com.smzh</groupId>

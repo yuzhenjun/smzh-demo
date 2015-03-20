@@ -6,9 +6,9 @@ import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
+import com.smzh.beans.SearchResult;
 import com.smzh.common.WapperBaseDao;
 import com.smzh.security.entity.Role;
-import com.smzh.util.SearchResult;
 
 /**
  * 角色

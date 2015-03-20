@@ -16,6 +16,7 @@ with (document) {
 	write('<link rel="stylesheet" href="../css/jquery-ui.min.css">');
 
 	write('<link rel="stylesheet" href="../css/datetimepicker.css">');
+	
 
 	// <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 	write('<script type="text/javascript" language="javascript" src="../js/jquery-1.11.1.min.js"></script>');
@@ -40,6 +41,8 @@ with (document) {
 	write('<link rel="stylesheet" href="../js/jstree/style.min.css">');
 	write('<script type="text/javascript" language="javascript" src="../js/jstree/jstree.min.js"></script>');
 	/* 引入倒计时插件 */
-	write('<script type="text/javascript" language="javascript" src="../js/countdown.min.js"></script>');
+	write('<script type="text/javascript" language="javascript" src="../js/jquery.plugin.min.js"></script>');
+	write('<script type="text/javascript" language="javascript" src="../js/jquery.countdown.js"></script>');
+	write('<script type="text/javascript" language="javascript" src="../js/jquery.countdown-zh-CN.js"></script>');
 
 }

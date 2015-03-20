@@ -3,8 +3,8 @@ package com.smzh.security.service;
 import java.util.List;
 import java.util.Set;
 
+import com.smzh.beans.SearchResult;
 import com.smzh.security.entity.Role;
-import com.smzh.util.SearchResult;
 
 /**
  *角色service
