@@ -154,35 +154,6 @@ public class QuickStart {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public static void requestPostArray()throws IOException{
-		CloseableHttpClient client = HttpClients.createDefault();
-		HttpPost postjson=new HttpPost("http://localhost:8080/common.web/test/postarray");
-		//设置请求头
-		postjson.addHeader("Content-Type","text/html;charset=UTF-8");
-		//设置请求类型
-		ContentType content=ContentType.create("text/html",Charset.defaultCharset());
-		//设置请求参数
-	    JSONObject json = new JSONObject();
-		json.put("limit", 33);
-		json.put("offset", 24);
-		json.put("arr", new String[]{"123","fdfad"});
-		StringEntity params = new StringEntity(json.toString(),content);
-		postjson.setEntity(params);
-		
-		//发送请求
-		CloseableHttpResponse response=client.execute(postjson);
-		System.out.println(response.getStatusLine());
-		HttpEntity entity = response.getEntity();
-		String result=EntityUtils.toString(entity);
-		System.out.println(result);
-		SearchResult<TableBean>  bean=JSON.parseObject(result,SearchResult.class);
-		System.out.println(bean);
-		if(response!=null)
-			response.close();
-		client.close();
-	}
-	
-	@SuppressWarnings("unchecked")
 	public static void requestPostJson()throws IOException{
 		CloseableHttpClient client = HttpClients.createDefault();
 		HttpPost postjson=new HttpPost("http://localhost:8080/common.web/test/postjson");
