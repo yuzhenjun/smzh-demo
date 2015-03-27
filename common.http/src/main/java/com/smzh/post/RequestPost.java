@@ -86,8 +86,7 @@ public class RequestPost {
 		// 设置请求头
 		post.addHeader("Content-Type", "application/json;charset=UTF-8");
 		// 设置请求类型
-		ContentType content = ContentType.create("application/json",
-				Charset.defaultCharset());
+		ContentType content = ContentType.create("application/json",Charset.defaultCharset());
 		// 设置请求参数
 		ObjectMapper objectMapper = new ObjectMapper();
 		String json;
