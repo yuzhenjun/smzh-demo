@@ -20,10 +20,10 @@
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
-		<property name="prefix" value="/jsp" />
+		<property name="prefix" value="/jsp/" />
 		<property name="suffix" value=".jsp" />
 		<property name="contentType" value="text/html;charset=UTF-8" />
-		<property name="order" value="0" />
+		<property name="order" value="2" />
 	</bean>
 
 

@@ -38,9 +38,8 @@ public class WapperBaseDao<T> extends BaseDao<T> implements IWapperBaseDao<T>{
 		});
 	}
 
-	@SuppressWarnings("unchecked")
 	public int getCount(String hql) {
-		List<T>list=this.getHibernateTemplate().find(hql);
+		List<Object>list=this.getHibernateTemplate().find(hql);
 		if(list!=null&&list.size()>0){
 			return list.size();
 		}

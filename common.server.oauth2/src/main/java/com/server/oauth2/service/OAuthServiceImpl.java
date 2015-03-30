@@ -1,6 +1,7 @@
 package com.server.oauth2.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,7 @@ public class OAuthServiceImpl implements OAuthService {
 
     @Autowired
     private ClientService clientService;
+
 
     @Autowired
     public OAuthServiceImpl(CacheManager cacheManager) {

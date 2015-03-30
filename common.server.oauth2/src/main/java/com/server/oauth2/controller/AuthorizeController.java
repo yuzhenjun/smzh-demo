@@ -66,7 +66,7 @@ public class AuthorizeController {
             if(!subject.isAuthenticated()) {
                 if(!login(subject, request)) {//登录失败时跳转到登陆页面
                     model.addAttribute("client", clientService.findByClientId(oauthRequest.getClientId()));
-                    return "oauth2login";
+                    return "/oauth2login";
                 }
             }
 

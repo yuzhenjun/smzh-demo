@@ -12,7 +12,6 @@
     <bean id="cacheManager" class="com.server.oauth2.cache.SpringCacheManagerWrapper">
         <property name="cacheManager" ref="springCacheManager"/>
     </bean>
-
     <!-- 凭证匹配器 -->
     <bean id="credentialsMatcher" class="com.server.oauth2.credentials.RetryLimitSimpleCredentialsMatcher">
         <constructor-arg ref="cacheManager"/>

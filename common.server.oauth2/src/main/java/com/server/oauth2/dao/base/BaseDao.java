@@ -15,6 +15,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+
 /**
  * 数据库通用类
  * @author zhenjun
@@ -65,7 +66,7 @@ public class BaseDao<T> extends HibernateDaoSupport implements IBaseDao<T>{
 	 */
 	@SuppressWarnings("unchecked")
 	public List<T> find(String hql,Object...values){
-		return this.getHibernateTemplate().find(hql, values);
+		return (List<T>) this.getHibernateTemplate().find(hql, values);
 	}
 	
 	/**
@@ -246,7 +247,7 @@ public class BaseDao<T> extends HibernateDaoSupport implements IBaseDao<T>{
 	@SuppressWarnings("unchecked")
 	public List<T> getAll(){
 		String hql = "from "+this.entityClass.getSimpleName();
-		return this.getHibernateTemplate().find(hql);
+		return (List<T>) this.getHibernateTemplate().find(hql);
 	}
 
 	@Resource(name = "sessionFactory")

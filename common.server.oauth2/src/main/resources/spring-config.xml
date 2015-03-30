@@ -12,8 +12,7 @@
 
 	<!-- 扫描注解Bean -->
 	<context:component-scan base-package="com.server.oauth2">
-		<context:exclude-filter type="annotation"
-			expression="org.springframework.stereotype.Controller" />
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 
 	<!-- 开启AOP监听 只对当前配置文件有效 -->
@@ -66,7 +65,7 @@
 		<property name="dataSource" ref="dataSourceProxy" />
 	</bean>
 
-
+  <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
 			<tx:method name="*" propagation="REQUIRED" />
