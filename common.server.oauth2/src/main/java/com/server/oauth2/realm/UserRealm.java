@@ -22,65 +22,59 @@ import com.server.oauth2.service.UserService;
 
 public class UserRealm extends AuthorizingRealm {
 
-    @Autowired
-    private UserService userService;
+	 @Autowired
+	    private UserService userService;
 
-    @Override
-    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-        String username = (String)principals.getPrimaryPrincipal();
+	    @Override
+	    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
+	        String username = (String)principals.getPrimaryPrincipal();
 
-        SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
-        //暂时不加权限
-        return authorizationInfo;
-    }
+	        SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
+	        //暂时不加权限
+	        return authorizationInfo;
+	    }
 
-    @Override
-    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
+	    @Override
+	    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 
-        String username = (String)token.getPrincipal();
+	    	String username = (String)token.getPrincipal();
+	        User user = userService.findByUsername(username);
 
-        User user = userService.findByUsername(username);
+	        if(user == null) {
+	            throw new UnknownAccountException();//没找到帐号
+	        }
 
-        if(user == null) {
-            throw new UnknownAccountException();//没找到帐号
-        }
+	        //交给AuthenticatingRealm使用CredentialsMatcher进行密码匹配，如果觉得人家的不好可以自定义实现
+	        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(user.getUsername(), user.getPassword(), ByteSource.Util.bytes(user.getSalt()),getName());
+	        return authenticationInfo;
+	    }
 
-        //交给AuthenticatingRealm使用CredentialsMatcher进行密码匹配，如果觉得人家的不好可以自定义实现
-        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
-                user.getUsername(), //用户名
-                user.getPassword(), //密码
-                ByteSource.Util.bytes(user.getCredentialsSalt()),//salt=username+salt
-                getName()  //realm name
-        );
-        return authenticationInfo;
-    }
+	    @Override
+	    public void clearCachedAuthorizationInfo(PrincipalCollection principals) {
+	        super.clearCachedAuthorizationInfo(principals);
+	    }
 
-    @Override
-    public void clearCachedAuthorizationInfo(PrincipalCollection principals) {
-        super.clearCachedAuthorizationInfo(principals);
-    }
+	    @Override
+	    public void clearCachedAuthenticationInfo(PrincipalCollection principals) {
+	        super.clearCachedAuthenticationInfo(principals);
+	    }
 
-    @Override
-    public void clearCachedAuthenticationInfo(PrincipalCollection principals) {
-        super.clearCachedAuthenticationInfo(principals);
-    }
+	    @Override
+	    public void clearCache(PrincipalCollection principals) {
+	        super.clearCache(principals);
+	    }
 
-    @Override
-    public void clearCache(PrincipalCollection principals) {
-        super.clearCache(principals);
-    }
+	    public void clearAllCachedAuthorizationInfo() {
+	        getAuthorizationCache().clear();
+	    }
 
-    public void clearAllCachedAuthorizationInfo() {
-        getAuthorizationCache().clear();
-    }
+	    public void clearAllCachedAuthenticationInfo() {
+	        getAuthenticationCache().clear();
+	    }
 
-    public void clearAllCachedAuthenticationInfo() {
-        getAuthenticationCache().clear();
-    }
+	    public void clearAllCache() {
+	        clearAllCachedAuthenticationInfo();
+	        clearAllCachedAuthorizationInfo();
+	    }
 
-    public void clearAllCache() {
-        clearAllCachedAuthenticationInfo();
-        clearAllCachedAuthorizationInfo();
-    }
-
-}
+	}

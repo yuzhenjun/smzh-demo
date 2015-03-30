@@ -1,6 +1,5 @@
 package com.server.oauth2.service;
 
-
 import java.util.List;
 import java.util.UUID;
 
@@ -17,44 +16,44 @@ import com.server.oauth2.entity.Client;
 @Transactional
 @Service
 public class ClientServiceImpl implements ClientService {
-    @Autowired
-    private ClientDao clientDao;
+	@Autowired
+	private ClientDao clientDao;
 
-    @Override
-    public Client createClient(Client client) {
+	@Override
+	public void createClient(Client client) {
 
-        client.setClientId(UUID.randomUUID().toString());
-        client.setClientSecret(UUID.randomUUID().toString());
-        return clientDao.createClient(client);
-    }
+		client.setClientId(UUID.randomUUID().toString());
+		client.setClientSecret(UUID.randomUUID().toString());
+		clientDao.createClient(client);
+	}
 
-    @Override
-    public Client updateClient(Client client) {
-        return clientDao.updateClient(client);
-    }
+	@Override
+	public void updateClient(Client client) {
+		clientDao.updateClient(client);
+	}
 
-    @Override
-    public void deleteClient(Long clientId) {
-        clientDao.deleteClient(clientId);
-    }
+	@Override
+	public void deleteClient(Long clientId) {
+		clientDao.deleteClient(clientId);
+	}
 
-    @Override
-    public Client findOne(Long clientId) {
-        return clientDao.findOne(clientId);
-    }
+	@Override
+	public Client findOne(Long clientId) {
+		return clientDao.findOne(clientId);
+	}
 
-    @Override
-    public List<Client> findAll() {
-        return clientDao.findAll();
-    }
+	@Override
+	public List<Client> findAll() {
+		return clientDao.findAll();
+	}
 
-    @Override
-    public Client findByClientId(String clientId) {
-        return clientDao.findByClientId(clientId);
-    }
+	@Override
+	public Client findByClientId(String clientId) {
+		return clientDao.findByClientId(clientId);
+	}
 
-    @Override
-    public Client findByClientSecret(String clientSecret) {
-        return clientDao.findByClientSecret(clientSecret);
-    }
+	@Override
+	public Client findByClientSecret(String clientSecret) {
+		return clientDao.findByClientSecret(clientSecret);
+	}
 }

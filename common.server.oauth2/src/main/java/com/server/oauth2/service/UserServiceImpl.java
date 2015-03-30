@@ -24,15 +24,15 @@ public class UserServiceImpl implements UserService {
      * 创建用户
      * @param user
      */
-    public User createUser(User user) {
+    public void createUser(User user) {
         //加密密码
         passwordHelper.encryptPassword(user);
-        return userDao.createUser(user);
+        userDao.createUser(user);
     }
 
     @Override
-    public User updateUser(User user) {
-        return userDao.updateUser(user);
+    public void updateUser(User user) {
+        userDao.updateUser(user);
     }
 
     @Override
