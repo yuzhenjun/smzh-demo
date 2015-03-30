@@ -11,8 +11,8 @@ import com.server.oauth2.entity.Client;
  */
 public interface ClientService {
 
-    public Client createClient(Client client);
-    public Client updateClient(Client client);
+    public void createClient(Client client);
+    public void updateClient(Client client);
     public void deleteClient(Long clientId);
 
     Client findOne(Long clientId);

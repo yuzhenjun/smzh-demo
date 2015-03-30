@@ -12,9 +12,9 @@ public interface UserService {
      * 创建用户
      * @param user
      */
-    public User createUser(User user);
+    public void createUser(User user);
 
-    public User updateUser(User user);
+    public void updateUser(User user);
 
     public void deleteUser(Long userId);
 

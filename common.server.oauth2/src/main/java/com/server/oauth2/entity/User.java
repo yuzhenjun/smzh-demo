@@ -2,76 +2,90 @@ package com.server.oauth2.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * zhenjun.yu
  */
+@Entity
+@Table(name = "oauth2_user")
 public class User implements Serializable {
-    private Long id; //编号
-    private String username; //用户名
-    private String password; //密码
-    private String salt; //加密密码的盐
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column
+	private Long id; // 编号
+	@Column
+	private String username; // 用户名
+	@Column
+	private String password; // 密码
+	@Column
+	private String salt; // 加密密码的盐
 
-    public Long getId() {
-        return id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public String getUsername() {
-        return username;
-    }
+	public String getUsername() {
+		return username;
+	}
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    public String getSalt() {
-        return salt;
-    }
+	public String getSalt() {
+		return salt;
+	}
 
-    public void setSalt(String salt) {
-        this.salt = salt;
-    }
+	public void setSalt(String salt) {
+		this.salt = salt;
+	}
 
-    public String getCredentialsSalt() {
-        return username + salt;
-    }
+	public String getCredentialsSalt() {
+		return username + salt;
+	}
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+		User user = (User) o;
 
-        User user = (User) o;
+		if (id != null ? !id.equals(user.id) : user.id != null)
+			return false;
 
-        if (id != null ? !id.equals(user.id) : user.id != null) return false;
+		return true;
+	}
 
-        return true;
-    }
+	@Override
+	public int hashCode() {
+		return id != null ? id.hashCode() : 0;
+	}
 
-    @Override
-    public int hashCode() {
-        return id != null ? id.hashCode() : 0;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", salt='" + salt + '\'' +
-                '}';
-    }
+	@Override
+	public String toString() {
+		return "User{" + "id=" + id + ", username='" + username + '\''
+				+ ", password='" + password + '\'' + ", salt='" + salt + '\''
+				+ '}';
+	}
 }
