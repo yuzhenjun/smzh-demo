@@ -2,12 +2,16 @@ package com.smzh.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
 import org.apache.oltu.oauth2.client.OAuthClient;
 import org.apache.oltu.oauth2.client.URLConnectionClient;
 import org.apache.oltu.oauth2.client.request.OAuthClientRequest;
@@ -16,10 +20,11 @@ import org.apache.oltu.oauth2.common.OAuth;
 import org.apache.oltu.oauth2.common.message.types.GrantType;
 
 import com.smzh.Constants;
+import com.smzh.post.RequestPost;
 
 /**
- * 获取code
- * 根据code获取access_token
+ * 锟斤拷取code
+ * 锟斤拷锟絚ode锟斤拷取access_token
  * @author zhenjun
  *
  */
@@ -34,10 +39,17 @@ public class AccessTokenServlet extends HttpServlet {
 		
 		response.setContentType("application/json;charset=UTF-8");
 		String code = request.getParameter("code");
-		OAuthAccessTokenResponse oAuthResponse=extractUsername(code);
+		List<NameValuePair> nvps=new ArrayList<NameValuePair>();
+		nvps.add(new BasicNameValuePair("client_id",Constants.clientId));
+		nvps.add(new BasicNameValuePair("client_secret",Constants.clientSecret));
+		nvps.add(new BasicNameValuePair("grant_type","authorization_code"));
+		nvps.add(new BasicNameValuePair("code",code));
+		nvps.add(new BasicNameValuePair("redirect_uri",Constants.redirectUrl));
+		String result=RequestPost.execute(Constants.accessTokenUrl, nvps);
+		//OAuthAccessTokenResponse oAuthResponse=extractUsername(code);
 		
 		PrintWriter out=response.getWriter();
-		out.println(oAuthResponse.getBody());
+		out.println(result);
 		out.flush();
 		out.close();
 		
@@ -52,8 +64,6 @@ public class AccessTokenServlet extends HttpServlet {
 
 		try {
 			OAuthClient oAuthClient = new OAuthClient(new URLConnectionClient());
-
-			// 根据code请求accessToken
 			OAuthClientRequest accessTokenRequest = OAuthClientRequest.tokenLocation(Constants.accessTokenUrl)
 					.setGrantType(GrantType.AUTHORIZATION_CODE).setClientId(Constants.clientId)
 					.setClientSecret(Constants.clientSecret).setCode(code)

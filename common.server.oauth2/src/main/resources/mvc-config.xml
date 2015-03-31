@@ -15,7 +15,7 @@
 	<mvc:resources location="/images/" mapping="/images/**"></mvc:resources>
 	<mvc:resources location="/js/" mapping="/js/**"></mvc:resources>
 	<mvc:resources location="/fonts/" mapping="/fonts/**"></mvc:resources>
-    
+    <mvc:view-controller path="/"  view-name="redirect:/index" />
 	<!--多个视图解析是InternalResourceViewResolver order属性要设置成最大 -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

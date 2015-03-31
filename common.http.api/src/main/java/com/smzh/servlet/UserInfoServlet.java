@@ -29,7 +29,6 @@ public class UserInfoServlet extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		String access_token = request.getParameter("access_token");
 		OAuthResourceResponse oAuthResponse=extractUsername(access_token);
-		System.out.println(oAuthResponse.getBody());
 		PrintWriter out=response.getWriter();
 		out.println(oAuthResponse.getBody());
 		out.flush();

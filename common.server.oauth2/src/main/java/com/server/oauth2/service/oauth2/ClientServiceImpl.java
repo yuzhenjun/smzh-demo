@@ -22,7 +22,6 @@ public class ClientServiceImpl implements ClientService {
 
 	@Override
 	public void createClient(Client client) {
-
 		client.setClientId(UUID.randomUUID().toString());
 		client.setClientSecret(UUID.randomUUID().toString());
 		clientDao.createClient(client);
