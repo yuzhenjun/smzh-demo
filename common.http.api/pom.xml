@@ -7,6 +7,15 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>common.http.api Maven Webapp</name>
 	<url>http://maven.apache.org</url>
+	<properties>
+		<project.version>1.0.0</project.version>
+		<project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
+		<tomcat6-version>2.1</tomcat6-version>
+		<spring-version>3.2.10.RELEASE</spring-version>
+		<http-version>4.3.6</http-version>
+		<mysql-version>5.1.12</mysql-version>
+		<json-version>20140107</json-version>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -63,6 +72,14 @@
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat6-maven-plugin</artifactId>
+				<version>${tomcat6-version}</version>
+				<configuration>
+					<path>/${finalName}</path>
 				</configuration>
 			</plugin>
 		</plugins>
