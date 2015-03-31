@@ -24,8 +24,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.server.oauth2.Constants;
-import com.server.oauth2.service.OAuthService;
+import com.server.oauth2.service.impl.OAuthService;
+import com.server.oauth2.utils.Constants;
 
 /**
  * 

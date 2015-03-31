@@ -2,7 +2,7 @@
 /**
  * 
  */
-package com.server.oauth2.realm;
+package com.server.oauth2.shiro.realm;
 
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -17,7 +17,7 @@ import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.server.oauth2.entity.User;
-import com.server.oauth2.service.UserService;
+import com.server.oauth2.service.impl.UserService;
 
 
 public class UserRealm extends AuthorizingRealm {

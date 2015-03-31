@@ -1,10 +1,6 @@
-package com.server.oauth2;
+package com.server.oauth2.utils;
 
-/**
- * <p>User: Zhang Kaitao
- * <p>Date: 14-2-17
- * <p>Version: 1.0
- */
+
 public class Constants {
 
     public static String RESOURCE_SERVER_NAME = "chapter17-server";

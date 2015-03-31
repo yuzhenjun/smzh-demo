@@ -1,4 +1,4 @@
-package com.server.oauth2.cache;
+package com.server.oauth2.shiro.cache;
 
 import java.util.ArrayList;
 import java.util.Collection;

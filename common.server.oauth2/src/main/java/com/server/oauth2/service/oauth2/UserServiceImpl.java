@@ -1,4 +1,4 @@
-package com.server.oauth2.service;
+package com.server.oauth2.service.oauth2;
 
 import java.util.List;
 
@@ -8,6 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.server.oauth2.dao.UserDao;
 import com.server.oauth2.entity.User;
+import com.server.oauth2.service.impl.UserService;
+import com.server.oauth2.utils.PasswordHelper;
 
 /**
  * 

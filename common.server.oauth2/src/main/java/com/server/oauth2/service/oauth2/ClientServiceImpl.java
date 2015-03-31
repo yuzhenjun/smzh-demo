@@ -1,4 +1,4 @@
-package com.server.oauth2.service;
+package com.server.oauth2.service.oauth2;
 
 import java.util.List;
 import java.util.UUID;
@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.server.oauth2.dao.ClientDao;
 import com.server.oauth2.entity.Client;
+import com.server.oauth2.service.impl.ClientService;
 
 /**
  * 

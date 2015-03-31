@@ -1,4 +1,4 @@
-package com.server.oauth2.service;
+package com.server.oauth2.service.impl;
 
 /**
  * 

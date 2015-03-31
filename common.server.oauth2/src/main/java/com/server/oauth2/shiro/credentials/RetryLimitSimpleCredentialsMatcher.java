@@ -5,7 +5,7 @@
  * @author yzj
  * @date 2015年3月30日 下午4:34:31
  */
-package com.server.oauth2.credentials;
+package com.server.oauth2.shiro.credentials;
 
 import java.util.concurrent.atomic.AtomicInteger;
 

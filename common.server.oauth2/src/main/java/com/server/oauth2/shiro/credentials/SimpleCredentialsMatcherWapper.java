@@ -1,4 +1,4 @@
-package com.server.oauth2.credentials;
+package com.server.oauth2.shiro.credentials;
 
 import java.security.MessageDigest;
 

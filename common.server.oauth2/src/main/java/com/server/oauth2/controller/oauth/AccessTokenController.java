@@ -1,4 +1,4 @@
-package com.server.oauth2.controller;
+package com.server.oauth2.controller.oauth;
 
 import java.net.URISyntaxException;
 
@@ -23,9 +23,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.server.oauth2.Constants;
-import com.server.oauth2.service.OAuthService;
-import com.server.oauth2.service.UserService;
+import com.server.oauth2.service.impl.OAuthService;
+import com.server.oauth2.service.impl.UserService;
+import com.server.oauth2.utils.Constants;
 
 
 /**
