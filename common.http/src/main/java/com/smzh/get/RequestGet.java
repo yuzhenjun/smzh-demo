@@ -25,6 +25,7 @@ public class RequestGet {
 		String result = "";
 		// ================================httpget使用===================================
 		HttpGet get = new HttpGet(url);
+		get.addHeader("Content-Type", "application/x-www-form-urlencoded");
 		CloseableHttpResponse response = null;
 		try {
 			response = client.execute(get);

@@ -20,6 +20,7 @@ import org.apache.oltu.oauth2.common.OAuth;
 import org.apache.oltu.oauth2.common.message.types.GrantType;
 
 import com.smzh.Constants;
+import com.smzh.https.HttpsRequest;
 import com.smzh.post.RequestPost;
 
 /**
@@ -45,7 +46,7 @@ public class AccessTokenServlet extends HttpServlet {
 		nvps.add(new BasicNameValuePair("grant_type","authorization_code"));
 		nvps.add(new BasicNameValuePair("code",code));
 		nvps.add(new BasicNameValuePair("redirect_uri",Constants.redirectUrl));
-		String result=RequestPost.execute(Constants.accessTokenUrl, nvps);
+		String result=HttpsRequest.executePost(Constants.accessTokenUrl, nvps);
 		//OAuthAccessTokenResponse oAuthResponse=extractUsername(code);
 		
 		PrintWriter out=response.getWriter();
@@ -58,25 +59,5 @@ public class AccessTokenServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doGet(req, resp);
-	}
-
-	private OAuthAccessTokenResponse extractUsername(String code) {
-
-		try {
-			OAuthClient oAuthClient = new OAuthClient(new URLConnectionClient());
-			OAuthClientRequest accessTokenRequest = OAuthClientRequest.tokenLocation(Constants.accessTokenUrl)
-					.setGrantType(GrantType.AUTHORIZATION_CODE).setClientId(Constants.clientId)
-					.setClientSecret(Constants.clientSecret).setCode(code)
-					.setRedirectURI(Constants.redirectUrl).buildQueryMessage();
-
-			OAuthAccessTokenResponse oAuthResponse = oAuthClient.accessToken(accessTokenRequest, OAuth.HttpMethod.POST);
-
-			String accessToken = oAuthResponse.getAccessToken();
-			Long expiresIn = oAuthResponse.getExpiresIn();
-			return oAuthResponse;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
 	}
 }

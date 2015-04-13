@@ -19,7 +19,7 @@ public class AuthorizeServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String url = "http://localhost:8080/oauth2-server/oauth2/authorize?client_id="+Constants.clientId+"&response_type=code&redirect_uri="+Constants.redirectUrl;
+		String url = Constants.authurl+"?client_id="+Constants.clientId+"&response_type=code&redirect_uri="+Constants.redirectUrl;
 		response.sendRedirect(response.encodeRedirectURL(url));
 		
 	}

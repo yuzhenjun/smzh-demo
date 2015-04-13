@@ -47,6 +47,12 @@
 		</dependency>
 		<dependency>
 			<groupId>org.apache.oltu.oauth2</groupId>
+			<artifactId>org.apache.oltu.oauth2.resourceserver</artifactId>
+			<version>1.0.0</version>
+			<classifier>sources</classifier>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.oltu.oauth2</groupId>
 			<artifactId>org.apache.oltu.oauth2.authzserver</artifactId>
 			<version>1.0.0</version>
 		</dependency>
