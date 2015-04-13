@@ -12,15 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
-import org.apache.oltu.oauth2.client.OAuthClient;
-import org.apache.oltu.oauth2.client.URLConnectionClient;
-import org.apache.oltu.oauth2.client.request.OAuthClientRequest;
-import org.apache.oltu.oauth2.client.response.OAuthAccessTokenResponse;
-import org.apache.oltu.oauth2.common.OAuth;
-import org.apache.oltu.oauth2.common.message.types.GrantType;
 
 import com.smzh.Constants;
-import com.smzh.https.HttpsRequest;
 import com.smzh.post.RequestPost;
 
 /**
@@ -46,7 +39,7 @@ public class AccessTokenServlet extends HttpServlet {
 		nvps.add(new BasicNameValuePair("grant_type","authorization_code"));
 		nvps.add(new BasicNameValuePair("code",code));
 		nvps.add(new BasicNameValuePair("redirect_uri",Constants.redirectUrl));
-		String result=HttpsRequest.executePost(Constants.accessTokenUrl, nvps);
+		String result=RequestPost.execute(Constants.accessTokenUrl, nvps);
 		//OAuthAccessTokenResponse oAuthResponse=extractUsername(code);
 		
 		PrintWriter out=response.getWriter();

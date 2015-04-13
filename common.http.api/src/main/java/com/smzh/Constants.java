@@ -28,7 +28,7 @@ public class Constants {
 	  accessTokenUrl="http://10.222.138.160:8080/openapi/oauth2/accessToken";
 	  
 	  public final static String
-	  redirectUrl="http://10.222.138.160:8080/common.http.api/accessTokenServlet";
+	  redirectUrl="http://10.222.138.160:8080/testapi/accessTokenServlet";
 	  
 	  public final static String
 	  userInfoUrl="http://10.222.138.160:8080/openapi/oauth2/tokenInfo";
