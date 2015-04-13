@@ -15,8 +15,7 @@ public class HttpUtils {
 	 * @param client
 	 * @param response
 	 */
-	public static void close(CloseableHttpClient client,
-			CloseableHttpResponse response) {
+	public static void close(CloseableHttpClient client,CloseableHttpResponse response) {
 		if (response != null) {
 			try {
 				response.close();

@@ -65,8 +65,11 @@ public class OAuthServiceImpl implements OAuthService {
         return clientService.findByClientSecret(clientSecret) != null;
     }
 
+    /**
+     * 缓存七天
+     */
     @Override
     public long getExpireIn() {
-        return 3600L;
+        return 604800L;
     }
 }
