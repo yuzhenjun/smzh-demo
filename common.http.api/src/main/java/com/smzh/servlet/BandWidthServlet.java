@@ -28,7 +28,7 @@ import com.smzh.post.RequestPost;
  */
 public class BandWidthServlet extends HttpServlet {
 	public final static String urls="https://10.222.138.160:8443/openapi/oauth2/bandWidth/all";
-	public final static String url="http://10.222.138.160:8080/openapi/oauth2/bandWidth/all";
+	public final static String url="http://10.222.138.61:8080/openapi/oauth2/bandWidth/all";
 	/** */
 	private static final long serialVersionUID = 1L;
 	
@@ -52,7 +52,8 @@ public class BandWidthServlet extends HttpServlet {
 		nvps.add(new BasicNameValuePair("sp", "-1"));
 		nvps.add(new BasicNameValuePair("access_token", access_token));
 		nvps.add(new BasicNameValuePair("domain", "12121121"));
-		//getUrl.append("?access_token=").append(access_token).append("&startTime=2015-04-06 15:00:00&endTime=2015-04-07 15:00:00&sp=-1");
+		//getUrl.append("?access_token=").append(access_token).append("&startTime=2015-04-06 15:00:00&endTime=2015-04-07 15:00:00&sp=-1")
+		//String result=HttpsRequest.executePost(urls, nvps);
 		String result=RequestPost.execute(url, nvps);
 		//String result=HttpsRequest.executePost(url, nvps);
 		//String result=HttpsRequest.executeGet(getUrl.toString());

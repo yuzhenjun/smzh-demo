@@ -1,3 +1,10 @@
+/**
+ * @title AccessTokenHttpsServlet.java
+ * @package com.smzh.servlet
+ * @projectName common.http.api
+ * @author zhenjun.yu
+ * @date 2015年4月14日 下午3:17:13
+ */
 package com.smzh.servlet;
 
 import java.io.IOException;
@@ -14,15 +21,13 @@ import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
 import com.smzh.Constants;
-import com.smzh.post.RequestPost;
+import com.smzh.https.HttpsRequest;
 
 /**
- * ��ȡcode
- * ���code��ȡaccess_token
- * @author zhenjun
- *
+ * @author zhenjun.yu
+
  */
-public class AccessTokenServlet extends HttpServlet {
+public class AccessTokenHttpsServlet extends HttpServlet {
 	/**
 	 * 
 	 */
@@ -39,9 +44,7 @@ public class AccessTokenServlet extends HttpServlet {
 		nvps.add(new BasicNameValuePair("grant_type","authorization_code"));
 		nvps.add(new BasicNameValuePair("code",code));
 		nvps.add(new BasicNameValuePair("redirect_uri",Constants.redirectUrl));
-		//String result=HttpsRequest.executePost(Constants.accessTokenUrls, nvps);
-		String result=RequestPost.execute(Constants.accessTokenUrl, nvps);
-		//OAuthAccessTokenResponse oAuthResponse=extractUsername(code);
+		String result=HttpsRequest.executePost(Constants.accessTokenUrls, nvps);
 		
 		PrintWriter out=response.getWriter();
 		out.println(result);
