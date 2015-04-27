@@ -21,7 +21,7 @@
 		<servlet-name>accessTokenServlet</servlet-name>
 		<url-pattern>/accessTokenServlet</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>accessTokenHttpsServlet</servlet-name>
 		<servlet-class>com.smzh.servlet.AccessTokenHttpsServlet</servlet-class>
@@ -40,14 +40,23 @@
 		<servlet-name>bandWidthServlet</servlet-name>
 		<url-pattern>/bandWidthServlet</url-pattern>
 	</servlet-mapping>
-	
-	
-		<servlet>
+
+
+	<servlet>
 		<servlet-name>cacheServlet</servlet-name>
 		<servlet-class>com.smzh.servlet.CacheServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>cacheServlet</servlet-name>
 		<url-pattern>/cacheServlet</url-pattern>
+	</servlet-mapping>
+	
+		<servlet>
+		<servlet-name>gettoken</servlet-name>
+		<servlet-class>com.smzh.servlet.GetToken</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>gettoken</servlet-name>
+		<url-pattern>/gettoken</url-pattern>
 	</servlet-mapping>
 </web-app>
