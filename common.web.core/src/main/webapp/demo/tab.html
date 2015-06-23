@@ -21,20 +21,32 @@ $(function () {
     	  e.relatedTarget // 获取上个active
     	})
   })
+  
+  function searchByInstance(){
+	console.log($('#myTab li[class="active"]').attr('name'));
+}
 </script>
 </head>
 <body>
 <div role="tabpanel">
   <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist" id="myTab">
-    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
-    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
-    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
-    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+  <ul class="nav nav-tabs col-xs-8" role="tablist" id="myTab">
+    <li role="presentation" class="active" name="_home"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+    <li role="presentation" name="_Profile"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+    <li role="presentation" name="_Messages"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+    <li role="presentation" name="_Settings"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+	  <button onclick="searchByInstance()" class="btn btn-info glyphicon glyphicon-search"></button>
   </ul>
+ 
   <!-- Tab panes -->
   <div class="tab-content col-xs-9">
     <div role="tabpanel" class="tab-pane active" id="home">
+  <form class="form-inline">
+	    <div class="form-group">
+		    <label for="exampleInputName2">Name</label>
+		    <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">
+ 		 </div>
+  </form>
 		<h4>@home</h4>
 		<p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.</p>
 	</div>
